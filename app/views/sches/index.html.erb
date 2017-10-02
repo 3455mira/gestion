@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schedule at</th>
+      <th>Name sche</th>
+      <th>Icon</th>
+      <th>Notification time</th>
+      <th>Snooze</th>
+      <th>Place</th>
+      <th>Memo sche</th>
+      <th>Mail sche</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sches.each do |sch| %>
+      <tr>
+        <td><%= sch.schedule_at %></td>
+        <td><%= sch.name_sche %></td>
+        <td><%= sch.icon_id %></td>
+        <td><%= sch.notification_time %></td>
+        <td><%= sch.snooze %></td>
+        <td><%= sch.place %></td>
+        <td><%= sch.memo_sche %></td>
+        <td><%= sch.mail_sche %></td>
+        <td><%= link_to 'Show', sch %></td>
+        <td><%= link_to 'Edit', edit_sch_path(sch) %></td>
+        <td><%= link_to 'Destroy', sch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sch', new_sch_path %>

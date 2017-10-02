@@ -1,0 +1,2 @@
+class Sche < ApplicationRecord
+end

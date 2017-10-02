@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  schedule_at: 2017-10-02 10:25:05
+  name_sche: MyString
+  icon_id: 1
+  notification_time: 
+  snooze: false
+  place: MyString
+  memo_sche: MyText
+  mail_sche: false
+
+two:
+  schedule_at: 2017-10-02 10:25:05
+  name_sche: MyString
+  icon_id: 1
+  notification_time: 
+  snooze: false
+  place: MyString
+  memo_sche: MyText
+  mail_sche: false

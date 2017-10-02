@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Schedule at:</strong>
+  <%= @sch.schedule_at %>
+</p>
+
+<p>
+  <strong>Name sche:</strong>
+  <%= @sch.name_sche %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @sch.icon_id %>
+</p>
+
+<p>
+  <strong>Notification time:</strong>
+  <%= @sch.notification_time %>
+</p>
+
+<p>
+  <strong>Snooze:</strong>
+  <%= @sch.snooze %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @sch.place %>
+</p>
+
+<p>
+  <strong>Memo sche:</strong>
+  <%= @sch.memo_sche %>
+</p>
+
+<p>
+  <strong>Mail sche:</strong>
+  <%= @sch.mail_sche %>
+</p>
+
+<%= link_to 'Edit', edit_sch_path(@sch) %> |
+<%= link_to 'Back', sches_path %>
