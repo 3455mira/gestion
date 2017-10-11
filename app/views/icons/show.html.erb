@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name icon:</strong>
+  <%= @icon.name_icon %>
+</p>
+
+<p>
+  <strong>Image icon:</strong>
+  <%= @icon.image_icon %>
+</p>
+
+<p>
+  <strong>Image binary:</strong>
+  <%= @icon.image_binary %>
+</p>
+
+<p>
+  <strong>Image type:</strong>
+  <%= @icon.image_type %>
+</p>
+
+<%= link_to 'Edit', edit_icon_path(@icon) %> |
+<%= link_to 'Back', icons_path %>
