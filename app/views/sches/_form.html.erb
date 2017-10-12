@@ -26,10 +26,6 @@
     <%= form.number_field :icon_id, id: :sch_icon_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :通知時間 %>
-    <%= form.datetime_select :notification_time, id: :sch_notification_time %>
-  </div>
 
   <div class="field">
     <%= form.label :スヌーズ %>
@@ -47,9 +43,19 @@
   </div>
 
   <div class="field">
+  <%= form.label :アプリ内通知 %>
+  <%= form.check_box :notification_sche, id: :sch_notification_sche %>
+</div>
+
+  <div class="field">
     <%= form.label :メール通知 %>
     <%= form.check_box :mail_sche, id: :sch_mail_sche %>
   </div>
+
+  <div class="field">
+  <%= form.label :通知時間 %>
+  <%= form.datetime_select :notification_time, id: :sch_notification_time %>
+</div>
 
   <div class="actions">
     <%= form.submit %>

@@ -16,11 +16,6 @@
 </p>
 
 <p>
-  <strong>通知時間:</strong>
-  <%= @sch.notification_time %>
-</p>
-
-<p>
   <strong>スヌーズ:</strong>
   <%= @sch.snooze %>
 </p>
@@ -36,8 +31,18 @@
 </p>
 
 <p>
+<strong>アプリ内通知:</strong>
+<%= @sch.notification_sche %>
+</p>
+
+<p>
   <strong>メール通知:</strong>
   <%= @sch.mail_sche %>
+</p>
+
+<p>
+<strong>通知時間:</strong>
+<%= @sch.notification_time %>
 </p>
 
 <%= link_to '編集', edit_sch_path(@sch) %> |

@@ -69,6 +69,6 @@ class SchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sch_params
-      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :notification_time, :snooze, :place, :memo_sche, :mail_sche)
+      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :snooze, :place, :memo_sche, :notification_sche, :mail_sche, :notification_time)
     end
 end
