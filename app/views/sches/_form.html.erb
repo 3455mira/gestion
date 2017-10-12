@@ -12,42 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :schedule_at %>
+    <%= form.label :日時 %>
     <%= form.datetime_select :schedule_at, id: :sch_schedule_at %>
   </div>
 
   <div class="field">
-    <%= form.label :name_sche %>
+    <%= form.label :予定名 %>
     <%= form.text_field :name_sche, id: :sch_name_sche %>
   </div>
 
   <div class="field">
-    <%= form.label :icon_id %>
+    <%= form.label :アイコン %>
     <%= form.number_field :icon_id, id: :sch_icon_id %>
   </div>
 
   <div class="field">
-    <%= form.label :notification_time %>
-    <%= form.text_field :notification_time, id: :sch_notification_time %>
+    <%= form.label :通知時間 %>
+    <%= form.datetime_select :notification_time, id: :sch_notification_time %>
   </div>
 
   <div class="field">
-    <%= form.label :snooze %>
+    <%= form.label :スヌーズ %>
     <%= form.check_box :snooze, id: :sch_snooze %>
   </div>
 
   <div class="field">
-    <%= form.label :place %>
+    <%= form.label :場所 %>
     <%= form.text_field :place, id: :sch_place %>
   </div>
 
   <div class="field">
-    <%= form.label :memo_sche %>
+    <%= form.label :メモ %>
     <%= form.text_area :memo_sche, id: :sch_memo_sche %>
   </div>
 
   <div class="field">
-    <%= form.label :mail_sche %>
+    <%= form.label :メール通知 %>
     <%= form.check_box :mail_sche, id: :sch_mail_sche %>
   </div>
 
