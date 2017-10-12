@@ -24,30 +24,30 @@ class IconsController < ApplicationController
   # POST /icons
   # POST /icons.json
   def create
-    @icon = Icon.new(icon_params)
-
-    respond_to do |format|
-      if @icon.save
-        format.html { redirect_to @icon, notice: 'アイコンの追加に成功しました' }
-        format.json { render :show, status: :created, location: @icon }
-      else
-        format.html { render :new }
-        format.json { render json: @icon.errors, status: :unprocessable_entity }
-      end
+    @icon = Icon.new
+    @icon.name_icon = params[:icon][:name_icon]
+    @icon.image_icon = params[:icon][:image_icon]
+    @icon.image_binary = params[:icon][:image_binary]
+    @icon.image_type = params[:icon][:image_type]
+    if @icon.save
+      redirect_to icons.path
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /icons/1
   # PATCH/PUT /icons/1.json
   def update
-    respond_to do |format|
-      if @icon.update(icon_params)
-        format.html { redirect_to @icon, notice: 'アイコンの変更に成功しました' }
-        format.json { render :show, status: :ok, location: @icon }
-      else
-        format.html { render :edit }
-        format.json { render json: @icon.errors, status: :unprocessable_entity }
-      end
+    @icon = Icon.find(params[:id])
+    @icon.name_icon = params[:icon][:name_icon]
+    @icon.image_icon = params[:icon][:image_icon]
+    @icon.image_binary = params[:icon][:image_binary]
+    @icon.image_type = params[:icon][:image_type]
+    if @icon.save
+      redirect_to icons.path
+    else
+      render :edit
     end
   end
 
