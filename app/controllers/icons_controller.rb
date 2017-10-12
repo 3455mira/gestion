@@ -28,7 +28,7 @@ class IconsController < ApplicationController
 
     respond_to do |format|
       if @icon.save
-        format.html { redirect_to @icon, notice: 'Icon was successfully created.' }
+        format.html { redirect_to @icon, notice: 'アイコンの追加に成功しました' }
         format.json { render :show, status: :created, location: @icon }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class IconsController < ApplicationController
   def update
     respond_to do |format|
       if @icon.update(icon_params)
-        format.html { redirect_to @icon, notice: 'Icon was successfully updated.' }
+        format.html { redirect_to @icon, notice: 'アイコンの変更に成功しました' }
         format.json { render :show, status: :ok, location: @icon }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class IconsController < ApplicationController
   def destroy
     @icon.destroy
     respond_to do |format|
-      format.html { redirect_to icons_url, notice: 'Icon was successfully destroyed.' }
+      format.html { redirect_to icons_url, notice: 'アイコンの削除に成功しました」' }
       format.json { head :no_content }
     end
   end
