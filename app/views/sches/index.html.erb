@@ -2,6 +2,34 @@
 
 <h1>スケジュール</h1>
 
+<% today = Date.today %>
+<% now = Date.current %>
+<table border="1">
+  <caption><%= now.strftime('%Y年%m月') %></caption>
+  <tr height="50px">
+    <th width="80px" style="background: blue;"><spen style="color: white;">日</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">月</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">火</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">水</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">木</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">金</spen></th>
+    <th width="80px" style="background: blue;"><spen style="color: white;">土</spen></th>
+  </tr>
+  <tr>
+<% month = now.strftime('%m') %>
+<% d = now.at_beginning_of_month.at_beginning_of_week(:sunday) %>
+<% 1.upto(5).each do |i| %>
+  <tr height="80px">
+<% (d..d.end_of_week(:sunday)).each do |c| %>
+   <td align="center" style="background: <%= (c == today) ? "gray" : "white" %>;">
+    <%= (c.strftime('%m') == month) ? c.strftime('%d') : " " %>
+  </td>
+<% end %>
+  </tr>
+<% d = d + 1.week %>
+<% end %>
+</table>
+
 <table>
   <thead>
     <tr>
