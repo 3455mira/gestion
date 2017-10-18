@@ -18,17 +18,7 @@
 
   <div class="field">
     <%= form.label :アイコン画像 %>
-    <%= form.text_field :image_icon, id: :icon_image_icon %>
-  </div>
-
-  <div class="field">
-    <%= form.label :画像バイナリ %>
-    <%= form.text_field :image_binary, id: :icon_image_binary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :画像拡張子 %>
-    <%= form.text_field :image_type, id: :icon_image_type %>
+    <%= form.file_field :image_icon, id: :icon_image_icon %>
   </div>
 
   <div class="actions">
