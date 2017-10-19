@@ -26,11 +26,11 @@ class SchesController < ApplicationController
   def create
     @sch = Sche.new
     @sch.schedule_at       = DateTime.new(params[:sche][:'schedule_at(1i)'].to_i,
-                                      params[:sche][:'schedule_at(2i)'].to_i,
-                                      params[:sche][:'schedule_at(3i)'].to_i,
-                                      params[:sche][:'schedule_at(4i)'].to_i,
-                                      params[:sche][:'schedule_at(5i)'].to_i,
-                                      00)
+                                          params[:sche][:'schedule_at(2i)'].to_i,
+                                          params[:sche][:'schedule_at(3i)'].to_i,
+                                          params[:sche][:'schedule_at(4i)'].to_i,
+                                          params[:sche][:'schedule_at(5i)'].to_i,
+                                          00)
     @sch.name_sche         = params[:sche][:name_sche]
     @sch.icon_id           = params[:sche][:icon_id]
     @sch.snooze            = params[:sche][:snooze]
@@ -39,11 +39,11 @@ class SchesController < ApplicationController
     @sch.notification_sche = params[:sche][:notification_sche]
     @sch.mail_sche         = params[:sche][:mail_sche]
     @sch.notification_time = DateTime.new(params[:sche][:'schedule_at(1i)'].to_i,
-                                      params[:sche][:'schedule_at(2i)'].to_i,
-                                      params[:sche][:'schedule_at(3i)'].to_i,
-                                      params[:sche][:'schedule_at(4i)'].to_i,
-                                      params[:sche][:'schedule_at(5i)'].to_i,
-                                      00)
+                                          params[:sche][:'schedule_at(2i)'].to_i,
+                                          params[:sche][:'schedule_at(3i)'].to_i,
+                                          params[:sche][:'schedule_at(4i)'].to_i,
+                                          params[:sche][:'schedule_at(5i)'].to_i,
+                                          00)
     if @sch.save
       redirect_to sches_path
     else
@@ -56,11 +56,11 @@ class SchesController < ApplicationController
   def update
     @sch = Sche.find(params[:id])
     @sch.schedule_at       = DateTime.new(params[:sche][:'schedule_at(1i)'].to_i,
-                                      params[:sche][:'schedule_at(2i)'].to_i,
-                                      params[:sche][:'schedule_at(3i)'].to_i,
-                                      params[:sche][:'schedule_at(4i)'].to_i,
-                                      params[:sche][:'schedule_at(5i)'].to_i,
-                                      00)
+                                          params[:sche][:'schedule_at(2i)'].to_i,
+                                          params[:sche][:'schedule_at(3i)'].to_i,
+                                          params[:sche][:'schedule_at(4i)'].to_i,
+                                          params[:sche][:'schedule_at(5i)'].to_i,
+                                         00)
     @sch.name_sche         = params[:sche][:name_sche]
     @sch.icon_id           = params[:sche][:icon_id]
     @sch.snooze            = params[:sche][:snooze]
@@ -69,11 +69,11 @@ class SchesController < ApplicationController
     @sch.notification_sche = params[:sche][:notification_sche]
     @sch.mail_sche         = params[:sche][:mail_sche]
     @sch.notification_time = DateTime.new(params[:sche][:'schedule_at(1i)'].to_i,
-                                      params[:sche][:'schedule_at(2i)'].to_i,
-                                      params[:sche][:'schedule_at(3i)'].to_i,
-                                      params[:sche][:'schedule_at(4i)'].to_i,
-                                      params[:sche][:'schedule_at(5i)'].to_i,
-                                      00)
+                                          params[:sche][:'schedule_at(2i)'].to_i,
+                                          params[:sche][:'schedule_at(3i)'].to_i,
+                                          params[:sche][:'schedule_at(4i)'].to_i,
+                                          params[:sche][:'schedule_at(5i)'].to_i,
+                                          00)
 
     if @sch.save
       redirect_to sches_path
