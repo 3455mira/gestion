@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'mime/types'
+
+img = File.join(Rails.root, "/app/assets/images/seed_icon/学校、仕事.png") 
+Icon.create(name_icon: '学校、仕事', image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
+img = File.join(Rails.root, "/app/assets/images/seed_icon/お出かけ.png") 
+Icon.create(name_icon: 'お出かけ',image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
+img = File.join(Rails.root, "/app/assets/images/seed_icon/趣味.png") 
+Icon.create(name_icon: '趣味', image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
+img = File.join(Rails.root, "/app/assets/images/seed_icon/習い事.png") 
+Icon.create(name_icon: '習い事', image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
+img = File.join(Rails.root, "/app/assets/images/seed_icon/病院.png") 
+Icon.create(name_icon: '病院', image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
+img = File.join(Rails.root, "/app/assets/images/seed_icon/買い物.png") 
+Icon.create(name_icon: '買い物', image_icon: File.basename(img), image_binary: File.read(img), image_type: MIME::Types.type_for(img)[0].to_s)
