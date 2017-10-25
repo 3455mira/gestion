@@ -7,7 +7,7 @@
 <table border="1">
   <caption><%= now.strftime('%Y年%m月') %></caption>
   <tr height="50px">
-    <th width="80px" style="background: blue;"><spen style="color: white;">日</spen></th>
+    <th width="80px" style="background: red;"><spen style="color: white;">日</spen></th>
     <th width="80px" style="background: blue;"><spen style="color: white;">月</spen></th>
     <th width="80px" style="background: blue;"><spen style="color: white;">火</spen></th>
     <th width="80px" style="background: blue;"><spen style="color: white;">水</spen></th>
@@ -19,11 +19,16 @@
 <% month = now.strftime('%m') %>
 <% d = now.at_beginning_of_month.at_beginning_of_week(:sunday) %>
 <% 1.upto(5).each do |i| %>
-  <tr height="80px">
+  <tr height="100px">
 <% (d..d.end_of_week(:sunday)).each do |c| %>
-   <td align="center" style="background: <%= (c == today) ? "gray" : "white" %>;">
-    <%= (c.strftime('%m') == month) ? c.strftime('%d') : " " %>
-  </td>
+  <td align="left" valign="top" style="background: <%= (c == today) ? "gray" : "white" %>;">
+    <%= (c.strftime('%m') == month) ? c.strftime('%d') : " " %><br>
+    <% @sches.each do |sche| %>
+      <% if c.strftime('%y-%m-%d') == sche.schedule_at.strftime('%y-%m-%d') %>
+       <%= sche.icon_id %>
+      <% end %>
+    <% end %>
+    </td>
 <% end %>
   </tr>
 <% d = d + 1.week %>
