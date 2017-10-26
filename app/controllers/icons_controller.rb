@@ -32,7 +32,7 @@ class IconsController < ApplicationController
       @icon.image_binary = params[:icon][:image_icon].read
     end
     if @icon.save
-      redirect_to icons.path
+      redirect_to icons_path
     else
       render :new
     end

@@ -15,7 +15,7 @@
     <% @icons.each do |icon| %>
       <tr>
         <td><%= icon.name_icon %></td>
-        <td><%= image_tag show_image_icon_path(icon),:width => 100 %></td>
+        <td><%= image_tag show_image_icon_path(icon), :width => 100 %></td>
       
         <td><%= link_to '詳細', icon %></td>
         <td><%= link_to '編集', edit_icon_path(icon) %></td>
