@@ -1,0 +1,2 @@
+class ScheT < ApplicationRecord
+end

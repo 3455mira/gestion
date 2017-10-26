@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Schedule at:</strong>
+  <%= @sche_t.schedule_at %>
+</p>
+
+<p>
+  <strong>Name sche:</strong>
+  <%= @sche_t.name_sche %>
+</p>
+
+<p>
+  <strong>Sche:</strong>
+  <%= @sche_t.sche_id %>
+</p>
+
+<%= link_to 'Edit', edit_sche_t_path(@sche_t) %> |
+<%= link_to 'Back', sche_ts_path %>

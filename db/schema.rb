@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012021641) do
+ActiveRecord::Schema.define(version: 20171026022933) do
 
   create_table "icons", force: :cascade do |t|
     t.string "name_icon"
     t.string "image_icon"
     t.binary "image_binary"
     t.string "image_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sche_ts", force: :cascade do |t|
+    t.datetime "schedule_at"
+    t.string "name_sche"
+    t.integer "sche_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +41,15 @@ ActiveRecord::Schema.define(version: 20171012021641) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "notification_sche"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name_user"
+    t.string "mail_user"
+    t.string "pass_user"
+    t.string "icon_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

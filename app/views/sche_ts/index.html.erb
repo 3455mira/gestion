@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sche Ts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schedule at</th>
+      <th>Name sche</th>
+      <th>Sche</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sche_ts.each do |sche_t| %>
+      <tr>
+        <td><%= sche_t.schedule_at %></td>
+        <td><%= sche_t.name_sche %></td>
+        <td><%= sche_t.sche_id %></td>
+        <td><%= link_to 'Show', sche_t %></td>
+        <td><%= link_to 'Edit', edit_sche_t_path(sche_t) %></td>
+        <td><%= link_to 'Destroy', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sche T', new_sche_t_path %>

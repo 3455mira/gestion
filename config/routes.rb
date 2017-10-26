@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :sche_ts
   resources :icons
   resources :icons do
     member do

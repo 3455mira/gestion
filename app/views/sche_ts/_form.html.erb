@@ -1,0 +1,32 @@
+<%= form_with(model: sche_t, local: true) do |form| %>
+  <% if sche_t.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sche_t.errors.count, "error") %> prohibited this sche_t from being saved:</h2>
+
+      <ul>
+      <% sche_t.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :schedule_at %>
+    <%= form.datetime_select :schedule_at, id: :sche_t_schedule_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name_sche %>
+    <%= form.text_field :name_sche, id: :sche_t_name_sche %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sche_id %>
+    <%= form.number_field :sche_id, id: :sche_t_sche_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
