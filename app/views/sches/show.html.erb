@@ -1,44 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Schedule at:</strong>
+  <strong>日時:</strong>
   <%= @sch.schedule_at %>
 </p>
 
 <p>
-  <strong>Name sche:</strong>
+  <strong>予定名:</strong>
   <%= @sch.name_sche %>
 </p>
 
 <p>
-  <strong>Icon:</strong>
+  <strong>アイコン:</strong>
   <%= @sch.icon_id %>
 </p>
 
 <p>
-  <strong>Notification time:</strong>
-  <%= @sch.notification_time %>
-</p>
-
-<p>
-  <strong>Snooze:</strong>
-  <%= @sch.snooze %>
-</p>
-
-<p>
-  <strong>Place:</strong>
+  <strong>場所:</strong>
   <%= @sch.place %>
 </p>
 
 <p>
-  <strong>Memo sche:</strong>
+  <strong>メモ:</strong>
   <%= @sch.memo_sche %>
 </p>
 
 <p>
-  <strong>Mail sche:</strong>
+<strong>アプリ内通知:</strong>
+<%= @sch.notification_sche %>
+</p>
+
+<p>
+  <strong>メール通知:</strong>
   <%= @sch.mail_sche %>
 </p>
 
-<%= link_to 'Edit', edit_sch_path(@sch) %> |
-<%= link_to 'Back', sches_path %>
+<p>
+<strong>通知時間:</strong>
+<%= @sch.notification_time %>
+</p>
+
+<p>
+<strong>スヌーズ:</strong>
+<%= @sch.snooze %>
+</p>
+
+<%= link_to '編集', edit_sch_path(@sch) %> |
+<%= link_to 'スケジュールTOP', sches_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002015046) do
+ActiveRecord::Schema.define(version: 20171012021641) do
 
   create_table "icons", force: :cascade do |t|
     t.string "name_icon"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20171002015046) do
     t.boolean "mail_sche"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "notification_sche"
   end
 
 end
