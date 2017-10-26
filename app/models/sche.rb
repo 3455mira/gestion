@@ -8,18 +8,18 @@ def error_check
       errors[:base] << '予定名は必ず入力してください'
     end
 
-  # schedule_at か notification_time が過去日のときエラーメッセージ
-    if schedule_at < Time.now or notification_time < Time.now
+  # schedule_at が過去日のときエラーメッセージ
+    if schedule_at < Time.now
       errors[:base] << '過去日は選択できません'
     end
 
-  # icon_id が０未満のときにエラーメッセージ
-    if icon_id.present? 
-      if icon_id < 0
-         errors[:base] << 'アイコンは整数'
-      end
+  # notification_time が過去日のときエラーメッセージ
+  if notification_sche == true or mail_sche == true
+    if notification_time < Time.now
+      errors[:base] << '過去日は選択できません'
     end
-  
+  end
+
 end
 
 end

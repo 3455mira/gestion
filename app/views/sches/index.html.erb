@@ -41,12 +41,12 @@
       <th>日時</th>
       <th>予定名</th>
       <th>アイコン</th>
-      <th>スヌーズ</th>
       <th>場所</th>
       <th>メモ</th>
       <th>アプリ内通知</th>
       <th>メール通知</th>
       <th>通知時間</th>
+      <th>スヌーズ</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -54,15 +54,15 @@
   <tbody>
     <% @sches.each do |sche| %>
       <tr>
-        <td><%= sche.schedule_at %></td>
+        <td><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
         <td><%= sche.name_sche %></td>
         <td><%= sche.icon_id %></td>
-        <td><%= sche.snooze %></td>
         <td><%= sche.place %></td>
         <td><%= sche.memo_sche %></td>
         <td><%= sche.notification_sche %></td>
         <td><%= sche.mail_sche %></td>
-        <td><%= sche.notification_time %></td>
+        <td><%= sche.notification_time.strftime('20%y/%m/%d %H:%M') %></td>
+        <td><%= sche.snooze %></td>
         <td><%= link_to '詳細', sche %></td>
         <td><%= link_to '編集', edit_sch_path(sche) %></td>
         <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></td>
