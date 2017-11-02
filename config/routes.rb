@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
+
+  post 'login/auth'
   resources :sche_ts
   resources :icons
   resources :icons do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     end 
   end
   resources :sches
+  root 'calender#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
