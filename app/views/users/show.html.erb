@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name user:</strong>
+  <strong>ユーザー名:</strong>
   <%= @user.name_user %>
 </p>
 
 <p>
-  <strong>Mail user:</strong>
+  <strong>メールアドレス:</strong>
   <%= @user.mail_user %>
 </p>
 
 <p>
-  <strong>Pass user:</strong>
+  <strong>パスワード:</strong>
   <%= @user.pass_user %>
 </p>
 
 <p>
-  <strong>Icon user:</strong>
+  <strong>アイコン画像:</strong>
   <%= @user.icon_user %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', users_path %>

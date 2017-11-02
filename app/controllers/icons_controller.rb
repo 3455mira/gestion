@@ -12,6 +12,7 @@ class IconsController < ApplicationController
   def show
   end
 
+  
   # GET /icons/new
   def new
     @icon = Icon.new
