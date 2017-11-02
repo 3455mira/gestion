@@ -4,7 +4,7 @@ class ScheTsController < ApplicationController
   # GET /sche_ts
   # GET /sche_ts.json
   def index
-    @sche_ts = ScheT.all
+    @sche_ts = Sche.all.order(notification_time: "DESC")
   end
 
   # GET /sche_ts/1
@@ -24,16 +24,20 @@ class ScheTsController < ApplicationController
   # POST /sche_ts
   # POST /sche_ts.json
   def create
-    @sche_t = ScheT.new(sche_t_params)
+    @sche_t = ScheT.new
+    @sche_t.schedule_at = DateTime.new(params[:sche_t][:'schedule_at(1i)'].to_i,
+                                       params[:sche_t][:'schedule_at(2i)'].to_i,
+                                       params[:sche_t][:'schedule_at(3i)'].to_i,
+                                       params[:sche_t][:'schedule_at(4i)'].to_i,
+                                       params[:sche_t][:'schedule_at(5i)'].to_i,
+                                       00)
+    @sche_t.name_sche   = params[:sche_t][:name_sche]
+    @sche_t.icon_id     = params[:sche_t][:icon_id]
 
-    respond_to do |format|
-      if @sche_t.save
-        format.html { redirect_to @sche_t, notice: 'Sche t was successfully created.' }
-        format.json { render :show, status: :created, location: @sche_t }
-      else
-        format.html { render :new }
-        format.json { render json: @sche_t.errors, status: :unprocessable_entity }
-      end
+    if @sche_t.save
+      redirect_to sche_ts_path
+    else
+      render :new
     end
   end
 
@@ -64,7 +68,7 @@ class ScheTsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sche_t
-      @sche_t = ScheT.find(params[:id])
+      @sche_t = Sche.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

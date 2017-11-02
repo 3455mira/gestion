@@ -1,31 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sche Ts</h1>
+<h1>スケジュール通知</h1>
+
+<% kensu = 0 %>
+<% @sche_ts.each do |sche_t| %>
+  <% if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5
+  kensu += 1
+   end %>
+<% end %>
+<p><strong>５日以内に期限がくるものが</strong>
+<%= kensu %>
+<strong>件あります</strong>
+</p>
 
 <table>
   <thead>
     <tr>
-      <th>Schedule at</th>
-      <th>Name sche</th>
-      <th>Sche</th>
+      <th>日時</th>
+      <th>予定名</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @sche_ts.each do |sche_t| %>
+      <% if sche_t.notification_sche == true %>
+        <% if sche_t.schedule_at < Date.today
+             namecolor = "red"
+           else
+             namecolor = "black"
+           end
+        %>
       <tr>
-        <td><%= sche_t.schedule_at %></td>
+        <td style = "color : <%= namecolor %>"><%= sche_t.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
         <td><%= sche_t.name_sche %></td>
-        <td><%= sche_t.sche_id %></td>
-        <td><%= link_to 'Show', sche_t %></td>
-        <td><%= link_to 'Edit', edit_sche_t_path(sche_t) %></td>
-        <td><%= link_to 'Destroy', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', sche_t %></td>
+        <td><%= link_to '編集', edit_sch_path(sche_t) %></td>
+        <td><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Sche T', new_sche_t_path %>
