@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menu/index'
+
   get 'logins/index'
   #resources :logins
   post 'logins/auth'
