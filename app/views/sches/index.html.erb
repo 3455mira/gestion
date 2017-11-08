@@ -53,8 +53,14 @@
 
   <tbody>
     <% @sches.each do |sche| %>
+      <% if sche.schedule_at < Date.today
+           namecolor = "red"
+         else
+           namecolor = "black"
+         end
+       %>
       <tr>
-        <td><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
+        <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
         <td><%= sche.name_sche %></td>
         <td><%= sche.icon_id %></td>
         <td><%= sche.place %></td>

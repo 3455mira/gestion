@@ -44,6 +44,7 @@ class User < ApplicationRecord
             end
         end
 
+
         #unless image_user.blank? 
             #case File.extname(image_user)
             #when ".png",".jpg",".jpeg",".bmp"
@@ -52,4 +53,13 @@ class User < ApplicationRecord
             #end
         #end
     end
+    def self.authenticate(mail_user,pass_user)
+        usr = find_by(mail_user: mail_user)
+        if usr != nil && usr.pass_user == pass_user then
+            usr
+        else
+            return
+        end
+    end
 end
+

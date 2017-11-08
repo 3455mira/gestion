@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026022933) do
+ActiveRecord::Schema.define(version: 20171102014507) do
 
   create_table "icons", force: :cascade do |t|
     t.string "name_icon"
     t.string "image_icon"
     t.binary "image_binary"
     t.string "image_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logins", force: :cascade do |t|
+    t.string "account"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

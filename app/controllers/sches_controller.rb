@@ -4,7 +4,7 @@ class SchesController < ApplicationController
   # GET /sches
   # GET /sches.json
   def index
-    @sches = Sche.all
+    @sches = Sche.all.order(notification_time: "DESC")
   end
 
   # GET /sches/1

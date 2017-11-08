@@ -8,13 +8,14 @@ class ApplicationController < ActionController::Base
     if session[:usr]then
 
     begin
-      @usr = User.find(session[:uer])
+      @usr = User.find(session[:usr])
     rescue ActiveRecord::RecordNotFound
       reset_session
     end
   end
-  unless @usrflash[:referer] = request.fullpath
-    redirect_tocontroller: :login,action: :index
+  unless @usr
+    flash[:referer] = request.fullpath
+    redirect_to controller: :logins,action: :index
   end
 end
 end
