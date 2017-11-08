@@ -1,12 +1,24 @@
 class LoginsController < ApplicationController
   before_action :set_login, only: [:show, :edit, :update, :destroy]
-
+skip_before_action :check_logined
   # GET /logins
   # GET /logins.json
   def index
-    @logins = Login.all
+ #   @logins = Login.all
   end
 
+  def auth
+    usr = User.authenticate(params[:mail_user],params[:pass_user])
+    if usr then
+      reset_session
+      session[:usr] = usr.id
+      redirect_to params[:referer]
+    else
+      flash.now[:referer] = params[:referer]
+    @error = "アカウントとパスワードに誤りがあります"
+    render 'index'
+    end
+  end
   # GET /logins/1
   # GET /logins/1.json
   def show

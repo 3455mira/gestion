@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :logins
-  resources :users
+  get 'logins/index'
+  #resources :logins
+  post 'logins/auth'
   resources :sche_ts
   resources :icons
   resources :icons do
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
     end 
   end
   resources :sches
+  resources :users
+  root 'sches#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

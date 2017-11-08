@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
+<p style="color: red;"><%= @error %></p>
 
-<h1>Logins</h1>
+<%= form_tag action: :auth do %>
+  
+    <div class="field">
+      <%= label_tag :mail_user,'アカウント' %>
+      <%= text_field_tag :mail_user,'' %>
+    </div>
+  
+    <div class="field">
+    <%= label_tag :pass_user,'パスワード' %>
+    <%= password_field_tag :pass_user,'' %>
+  </div>
+  
+    <%= hidden_field_tag :referer,flash[:referer] %>
+    <div class="actions">
+      <%= submit_tag 'ログイン' %>
+    </div>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Account</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @logins.each do |login| %>
-      <tr>
-        <td><%= login.account %></td>
-        <td><%= login.password %></td>
-        <td><%= link_to 'Show', login %></td>
-        <td><%= link_to 'Edit', edit_login_path(login) %></td>
-        <td><%= link_to 'Destroy', login, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Login', new_login_path %>
+<%= link_to 'アカウント作成', users_path %>
