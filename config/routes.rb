@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :syojis
   get 'menu/index'
 
   get 'logins/index'
