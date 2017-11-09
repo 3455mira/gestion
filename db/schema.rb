@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20171108014131) do
     t.integer "color_j"
     t.string "title_j"
     t.datetime "release"
-    t.boolean "snooze"
     t.string "image_syo"
     t.binary "image_binary"
     t.string "image_type"
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171108014131) do
     t.boolean "notification_syo"
     t.boolean "mail_syo"
     t.datetime "notification_time"
+    t.boolean "snooze"
     t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
