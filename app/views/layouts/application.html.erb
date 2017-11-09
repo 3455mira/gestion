@@ -10,5 +10,9 @@
 
   <body>
     <%= yield %>
+    <% if session[:usr].present? %>
+    <%= session[:usr_name] %>
+    <%= link_to "ログオフ",logins_logoff_path %>
+    <% end %>
   </body>
 </html>

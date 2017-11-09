@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'menu/index'
 
   get 'logins/index'
+  get 'logins/logoff'
   #resources :logins
   post 'logins/auth'
   resources :sche_ts
