@@ -15,7 +15,7 @@ class Sche < ApplicationRecord
       errors[:base] << '過去日は選択できません'
     end
 
-    # notification_time が過去日のときエラーメッセージ
+    # notification_time が過去日か予定日以降のときエラーメッセージ
     if notification_sche == true or mail_sche == true
       if notification_time < Time.now
         errors[:base] << '過去日は選択できません'

@@ -12,77 +12,67 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title_syo %>
+    <%= form.label :タイトル＊ %>
     <%= form.text_field :title_syo, id: :syoji_title_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :artist %>
+    <%= form.label :アーティスト名 %>
     <%= form.text_field :artist, id: :syoji_artist %>
   </div>
 
   <div class="field">
-    <%= form.label :color_j %>
-    <%= form.number_field :color_j, id: :syoji_color_j %>
+    <%= form.label :ジャンルカラー %>
+    <%= form.number_field :color_j, in: 0.0..7.0 %>
   </div>
 
   <div class="field">
-    <%= form.label :title_j %>
+    <%= form.label :ジャンルタイトル %>
     <%= form.text_field :title_j, id: :syoji_title_j %>
   </div>
 
   <div class="field">
-    <%= form.label :release %>
-    <%= form.datetime_select :release, id: :syoji_release %>
-  </div>
-
-  <div class="field">
-    <%= form.label :snooze %>
-    <%= form.check_box :snooze, id: :syoji_snooze %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_syo %>
+    <%= form.label :ジャケット画像 %>
     <%= form.text_field :image_syo, id: :syoji_image_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :image_binary %>
-    <%= form.text_field :image_binary, id: :syoji_image_binary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_type %>
-    <%= form.text_field :image_type, id: :syoji_image_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :memo_syo %>
+    <%= form.label :メモ %>
     <%= form.text_area :memo_syo, id: :syoji_memo_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :url_syo %>
+    <%= form.label :HPリンク %>
     <%= form.text_field :url_syo, id: :syoji_url_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :notification_syo %>
+  <%= form.label :発売日 %>
+  <%= form.datetime_select :release, id: :syoji_release %>
+</div>
+
+  <div class="field">
+    <%= form.label :アプリ内通知 %>
     <%= form.check_box :notification_syo, id: :syoji_notification_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :mail_syo %>
+    <%= form.label :メール通知 %>
     <%= form.check_box :mail_syo, id: :syoji_mail_syo %>
   </div>
 
   <div class="field">
-    <%= form.label :notification_time %>
+    <%= form.label :通知時間 %>
     <%= form.datetime_select :notification_time, id: :syoji_notification_time %>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
+  <%= form.label :スヌーズ %>
+  <%= form.check_box :snooze, id: :syoji_snooze %>
+　</div>
+
+  <div class="field">
+    <%= form.label :カテゴリー %>
     <%= form.number_field :category, id: :syoji_category %>
   </div>
 

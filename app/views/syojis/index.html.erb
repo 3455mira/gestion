@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Syojis</h1>
+<h1>所持品</h1>
 
 <table>
   <thead>
@@ -9,14 +9,14 @@
       <th>アーティスト名</th>
       <th>ジャンルカラー</th>
       <th>ジャンルタイトル</th>
-      <th>発売日</th>
-      <th>スヌーズ</th>
       <th>ジャケット画像</th>
       <th>メモ</th>
       <th>リンク</th>
+      <th>発売日</th>
       <th>アプリ内通知</th>
       <th>メール通知</th>
       <th>通知時間</th>
+      <th>スヌーズ</th>
       <th>カテゴリー</th>
       <th colspan="3"></th>
     </tr>
@@ -29,18 +29,18 @@
         <td><%= syoji.artist %></td>
         <td><%= syoji.color_j %></td>
         <td><%= syoji.title_j %></td>
-        <td><%= syoji.release %></td>
-        <td><%= syoji.snooze %></td>
         <td><%= syoji.image_syo %></td>
         <td><%= syoji.memo_syo %></td>
-        <td><%= syoji.url_syo %></td>
+        <td><%= link_to 'HPへ', syoji.url_syo %></td>
+        <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
         <td><%= syoji.notification_syo %></td>
         <td><%= syoji.mail_syo %></td>
-        <td><%= syoji.notification_time %></td>
+        <td><%= syoji.notification_time.strftime('20%y/%m/%d %H:%M') %></td>
+        <td><%= syoji.snooze %></td>
         <td><%= syoji.category %></td>
-        <td><%= link_to 'Show', syoji %></td>
-        <td><%= link_to 'Edit', edit_syoji_path(syoji) %></td>
-        <td><%= link_to 'Destroy', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', syoji %></td>
+        <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
+        <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

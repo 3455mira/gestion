@@ -1,79 +1,69 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title syo:</strong>
+  <strong>タイトル:</strong>
   <%= @syoji.title_syo %>
 </p>
 
 <p>
-  <strong>Artist:</strong>
+  <strong>アーティスト名:</strong>
   <%= @syoji.artist %>
 </p>
 
 <p>
-  <strong>Color j:</strong>
+  <strong>ジャンルカラー:</strong>
   <%= @syoji.color_j %>
 </p>
 
 <p>
-  <strong>Title j:</strong>
+  <strong>ジャンルタイトル:</strong>
   <%= @syoji.title_j %>
 </p>
 
 <p>
-  <strong>Release:</strong>
-  <%= @syoji.release %>
-</p>
-
-<p>
-  <strong>Snooze:</strong>
-  <%= @syoji.snooze %>
-</p>
-
-<p>
-  <strong>Image syo:</strong>
+  <strong>ジャケット画像:</strong>
   <%= @syoji.image_syo %>
 </p>
 
 <p>
-  <strong>Image binary:</strong>
-  <%= @syoji.image_binary %>
-</p>
-
-<p>
-  <strong>Image type:</strong>
-  <%= @syoji.image_type %>
-</p>
-
-<p>
-  <strong>Memo syo:</strong>
+  <strong>メモ:</strong>
   <%= @syoji.memo_syo %>
 </p>
 
 <p>
-  <strong>Url syo:</strong>
+  <strong>リンク:</strong>
   <%= @syoji.url_syo %>
 </p>
 
 <p>
-  <strong>Notification syo:</strong>
+<strong>発売日:</strong>
+<%= @syoji.release %>
+</p>
+
+<p>
+  <strong>アプリ内通知：</strong>
   <%= @syoji.notification_syo %>
 </p>
 
 <p>
-  <strong>Mail syo:</strong>
+  <strong>メール通知:</strong>
   <%= @syoji.mail_syo %>
 </p>
 
 <p>
-  <strong>Notification time:</strong>
+  <strong>通知時間:</strong>
   <%= @syoji.notification_time %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+<strong>スヌーズ:</strong>
+<%= @syoji.snooze %>
+</p>
+
+<p>
+  <strong>カテゴリー</strong>
   <%= @syoji.category %>
 </p>
 
-<%= link_to 'Edit', edit_syoji_path(@syoji) %> |
-<%= link_to 'Back', syojis_path %>
+<%= link_to '編集', edit_syoji_path(@syoji) %> |
+<%= link_to '一覧へ', syojis_path %>

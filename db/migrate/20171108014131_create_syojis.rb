@@ -6,7 +6,6 @@ class CreateSyojis < ActiveRecord::Migration[5.1]
       t.integer :color_j
       t.string :title_j
       t.datetime :release
-      t.boolean :snooze
       t.string :image_syo
       t.binary :image_binary
       t.string :image_type
@@ -15,6 +14,7 @@ class CreateSyojis < ActiveRecord::Migration[5.1]
       t.boolean :notification_syo
       t.boolean :mail_syo
       t.datetime :notification_time
+      t.boolean :snooze
       t.integer :category
 
       t.timestamps
