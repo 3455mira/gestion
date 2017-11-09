@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102014507) do
+ActiveRecord::Schema.define(version: 20171108014131) do
 
   create_table "icons", force: :cascade do |t|
     t.string "name_icon"
@@ -48,6 +48,26 @@ ActiveRecord::Schema.define(version: 20171102014507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "notification_sche"
+  end
+
+  create_table "syojis", force: :cascade do |t|
+    t.string "title_syo"
+    t.string "artist"
+    t.integer "color_j"
+    t.string "title_j"
+    t.datetime "release"
+    t.boolean "snooze"
+    t.string "image_syo"
+    t.binary "image_binary"
+    t.string "image_type"
+    t.text "memo_syo"
+    t.string "url_syo"
+    t.boolean "notification_syo"
+    t.boolean "mail_syo"
+    t.datetime "notification_time"
+    t.integer "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

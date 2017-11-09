@@ -1,0 +1,82 @@
+<%= form_with(model: syoji, local: true) do |form| %>
+  <% if syoji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(syoji.errors.count, "error") %> prohibited this syoji from being saved:</h2>
+
+      <ul>
+      <% syoji.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :タイトル＊ %>
+    <%= form.text_field :title_syo, id: :syoji_title_syo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :アーティスト名 %>
+    <%= form.text_field :artist, id: :syoji_artist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ジャンルカラー %>
+    <%= form.number_field :color_j, in: 0.0..7.0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ジャンルタイトル %>
+    <%= form.text_field :title_j, id: :syoji_title_j %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ジャケット画像 %>
+    <%= form.text_field :image_syo, id: :syoji_image_syo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :メモ %>
+    <%= form.text_area :memo_syo, id: :syoji_memo_syo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :HPリンク %>
+    <%= form.text_field :url_syo, id: :syoji_url_syo %>
+  </div>
+
+  <div class="field">
+  <%= form.label :発売日 %>
+  <%= form.datetime_select :release, id: :syoji_release %>
+</div>
+
+  <div class="field">
+    <%= form.label :アプリ内通知 %>
+    <%= form.check_box :notification_syo, id: :syoji_notification_syo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :メール通知 %>
+    <%= form.check_box :mail_syo, id: :syoji_mail_syo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :通知時間 %>
+    <%= form.datetime_select :notification_time, id: :syoji_notification_time %>
+  </div>
+
+  <div class="field">
+  <%= form.label :スヌーズ %>
+  <%= form.check_box :snooze, id: :syoji_snooze %>
+　</div>
+
+  <div class="field">
+    <%= form.label :カテゴリー %>
+    <%= form.number_field :category, id: :syoji_category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

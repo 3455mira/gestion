@@ -1,0 +1,22 @@
+class Syoji < ApplicationRecord
+
+    validate :error_check
+    def error_check
+        # title_syo が空のときにエラーメッセージ
+        if title_syo.blank?
+           errors[:base] << 'タイトルは必ず入力してください'
+        end
+
+        # notification_time が過去日か発売日以降のときエラーメッセージ
+        if notification_syo == true or mail_syo == true
+            if notification_time < Time.now
+                errors[:base] << '過去日は選択できません'
+            else
+                if notification_time > schedule_at
+                  errors[:base] << '発売日より後は選択できません'
+                end
+            end
+        end
+    end
+
+end

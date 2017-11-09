@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @syoji.title_syo %>
+</p>
+
+<p>
+  <strong>アーティスト名:</strong>
+  <%= @syoji.artist %>
+</p>
+
+<p>
+  <strong>ジャンルカラー:</strong>
+  <%= @syoji.color_j %>
+</p>
+
+<p>
+  <strong>ジャンルタイトル:</strong>
+  <%= @syoji.title_j %>
+</p>
+
+<p>
+  <strong>ジャケット画像:</strong>
+  <%= @syoji.image_syo %>
+</p>
+
+<p>
+  <strong>メモ:</strong>
+  <%= @syoji.memo_syo %>
+</p>
+
+<p>
+  <strong>リンク:</strong>
+  <%= @syoji.url_syo %>
+</p>
+
+<p>
+<strong>発売日:</strong>
+<%= @syoji.release %>
+</p>
+
+<p>
+  <strong>アプリ内通知：</strong>
+  <%= @syoji.notification_syo %>
+</p>
+
+<p>
+  <strong>メール通知:</strong>
+  <%= @syoji.mail_syo %>
+</p>
+
+<p>
+  <strong>通知時間:</strong>
+  <%= @syoji.notification_time %>
+</p>
+
+<p>
+<strong>スヌーズ:</strong>
+<%= @syoji.snooze %>
+</p>
+
+<p>
+  <strong>カテゴリー</strong>
+  <%= @syoji.category %>
+</p>
+
+<%= link_to '編集', edit_syoji_path(@syoji) %> |
+<%= link_to '一覧へ', syojis_path %>
