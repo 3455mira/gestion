@@ -88,11 +88,10 @@ class SyojisController < ApplicationController
   # DELETE /syojis/1
   # DELETE /syojis/1.json
   def destroy
+    @syoji = Syoji.find(params[:id])
     @syoji.destroy
-    respond_to do |format|
-      format.html { redirect_to syojis_url, notice: 'Syoji was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to syojis_path
   end
 
   private
