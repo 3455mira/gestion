@@ -43,12 +43,12 @@
 
   <div class="field">
     <%= form.label :HPリンク %>
-    <%= form.text_field :url_syo, id: :syoji_url_syo %>
+    <%= url_field :syoji, :url_syo %>
   </div>
 
   <div class="field">
   <%= form.label :発売日 %>
-  <%= form.datetime_select :release, id: :syoji_release %>
+  <%= form.date_select :release, id: :syoji_release %>
 </div>
 
   <div class="field">
