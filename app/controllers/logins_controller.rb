@@ -6,12 +6,17 @@ skip_before_action :check_logined
   def index
  #   @logins = Login.all
   end
-
+  def logoff
+    session.delete(:usr)
+    session.delete(:usr_name)
+    redirect_to logins_index_path
+  end
   def auth
     usr = User.authenticate(params[:mail_user],params[:pass_user])
     if usr then
       reset_session
       session[:usr] = usr.id
+      session[:usr_name] = usr.name_user
       redirect_to params[:referer]
     else
       flash.now[:referer] = params[:referer]
