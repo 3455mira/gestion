@@ -29,7 +29,13 @@ class SyojisController < ApplicationController
     @syoji.artist            = params[:syoji][:artist]
     @syoji.color_j           = params[:syoji][:color_j]
     @syoji.title_j           = params[:syoji][:title_j]
-    @syoji.image_syo         = params[:syoji][:image_syo]
+
+    if params[:syoji][:image_syo].present?
+      @syoji.image_syo = params[:syoji][:image_syo].original_filename
+      @syoji.image_type = params[:syoji][:image_syo].content_type
+      @syoji.image_binary = params[:syoji][:image_syo].read
+    end
+
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
@@ -61,7 +67,13 @@ class SyojisController < ApplicationController
     @syoji.artist            = params[:syoji][:artist]
     @syoji.color_j           = params[:syoji][:color_j]
     @syoji.title_j           = params[:syoji][:title_j]
-    @syoji.image_syo         = params[:syoji][:image_syo]
+
+    if params[:syoji][:image_syo].present?
+      @syoji.image_syo = params[:syoji][:image_syo].original_filename
+      @syoji.image_type = params[:syoji][:image_syo].content_type
+      @syoji.image_binary = params[:syoji][:image_syo].read
+    end
+
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
@@ -83,6 +95,11 @@ class SyojisController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show_image
+    @syoji = Syoji.find(params[:id])
+    send_data @syoji.image_binary, :filename => @syoji.image_syo, :type => @syoji.image_type, :disposition => 'inline'
   end
 
   # DELETE /syojis/1

@@ -29,7 +29,7 @@
         <td><%= syoji.artist %></td>
         <td><%= syoji.color_j %></td>
         <td><%= syoji.title_j %></td>
-        <td><%= syoji.image_syo %></td>
+        <td><%= image_tag show_image_syoji_path(syoji), :width =>85 %></td>
         <td><%= syoji.memo_syo %></td>
         <td><%= link_to 'HPへ', syoji.url_syo %></td>
         <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
