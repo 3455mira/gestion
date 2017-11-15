@@ -15,6 +15,7 @@
     <%= link_to '所持品',syojis_path %>
     <% if session[:usr].present? %>
     <%= session[:usr_name] %>
+    <%= image_tag show_image_user_path(session[:usr]),:width => 37 %>
     <%= link_to "ログオフ",logins_logoff_path %>
     <% end %>
   </body>

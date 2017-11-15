@@ -24,33 +24,45 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'アカウント作成に成功しました' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @user = User.new
+    @user.name_user = params[:user][:name_user]
+    @user.mail_user = params[:user][:mail_user]
+    @user.pass_user = params[:user][:pass_user]
+   
+    if params[:user][:icon_user].present?
+      @user.icon_user = params[:user][:icon_user].original_filename
+      @user.image_type = params[:user][:icon_user].content_type
+      @user.image_binary = params[:user][:icon_user].read
+    end
+ 
+    if @user.save
+      redirect_to users_path
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'アカウント情報の更新に成功しました' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @user = User.find(params[:id])
+    @user.name_user = params[:user][:name_user]
+    @user.mail_user = params[:user][:mail_user]
+    @user.pass_user = params[:user][:pass_user]
+   
+    if params[:user][:icon_user].present?
+      @user.icon_user = params[:user][:icon_user].original_filename
+      @user.image_type = params[:user][:icon_user].content_type
+      @user.image_binary = params[:user][:icon_user].read
+    end
+ 
+    if @user.save
+      redirect_to users_path
+    else
+      render :edit
     end
   end
-
+  
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -60,7 +72,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def show_image
+    @user = User.find(params[:id])
+    send_data @user.image_binary, :filename => @user.icon_user, :type => @user.image_type, :disposition => 'inline'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

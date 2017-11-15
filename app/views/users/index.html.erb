@@ -19,7 +19,7 @@
         <td><%= user.name_user %></td>
         <td><%= user.mail_user %></td>
         <td><%= user.pass_user %></td>
-        <td><%= user.icon_user %></td>
+        <td><%= image_tag show_image_user_path(user),:width => 100 %></td>
         <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
