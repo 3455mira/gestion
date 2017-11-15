@@ -44,6 +44,7 @@ class SchesController < ApplicationController
                                           params[:sche][:'notification_time(5i)'].to_i,
                                           00)
     @sch.snooze            = params[:sche][:snooze]
+    @sch.user_id           = params[:sche][:user_id]
 
     if @sch.save
       redirect_to sches_path
@@ -75,6 +76,7 @@ class SchesController < ApplicationController
                                           params[:sche][:'notification_time(5i)'].to_i,
                                           00)
     @sch.snooze            = params[:sche][:snooze]
+    @sch.user_id           = params[:sche][:user_id]
 
     if @sch.save
       redirect_to sches_path
@@ -100,6 +102,6 @@ class SchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sch_params
-      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :place, :memo_sche, :notification_sche, :mail_sche, :notification_time, :snooze)
+      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :place, :memo_sche, :notification_sche, :mail_sche, :notification_time, :snooze, :user_id)
     end
 end

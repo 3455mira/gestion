@@ -76,6 +76,11 @@
     <%= form.check_box :snooze %>
   </div>
 
+  <div class="field">
+    <%= form.label :アカウント %>
+    <%= form.number_field :user_id, in: 0.0..7.0 %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
