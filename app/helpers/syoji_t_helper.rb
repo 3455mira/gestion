@@ -1,0 +1,2 @@
+module SyojiTHelper
+end

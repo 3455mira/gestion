@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'syoji_t/index'
+
   resources :syojis
   resources :syojis do
     member do

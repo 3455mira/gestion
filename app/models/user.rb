@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
     validate :error_check
     def error_check
 
