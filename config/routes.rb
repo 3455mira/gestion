@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :syojis
+  resources :syojis do
+    member do
+      get 'show_image'
+    end
+  end
   get 'menu/index'
 
   get 'logins/index'
