@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :syoji_ts
   resources :genres
   get 'syoji_t/index'
 

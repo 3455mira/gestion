@@ -1,0 +1,32 @@
+<%= form_with(model: syoji_t, local: true) do |form| %>
+  <% if syoji_t.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(syoji_t.errors.count, "error") %> prohibited this syoji_t from being saved:</h2>
+
+      <ul>
+      <% syoji_t.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :release %>
+    <%= form.date_select :release, id: :syoji_t_release %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :syoji_t_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, id: :syoji_t_artist %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

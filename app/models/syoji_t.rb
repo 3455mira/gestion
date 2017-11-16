@@ -1,0 +1,2 @@
+class SyojiT < ApplicationRecord
+end

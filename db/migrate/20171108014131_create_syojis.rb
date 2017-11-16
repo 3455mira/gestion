@@ -5,7 +5,7 @@ class CreateSyojis < ActiveRecord::Migration[5.1]
       t.string :artist
       t.integer :color_j
       t.string :title_j
-      t.datetime :release
+      t.date :release
       t.string :image_syo
       t.binary :image_binary
       t.string :image_type

@@ -4,7 +4,7 @@ class ScheTsController < ApplicationController
   # GET /sche_ts
   # GET /sche_ts.json
   def index
-    @sche_ts = Sche.all.order(notification_time: "DESC")
+    @sche_ts = Sche.where(user_id: session[:usr]).order(notification_time: "DESC")
   end
 
   # GET /sche_ts/1
