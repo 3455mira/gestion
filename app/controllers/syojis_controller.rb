@@ -4,7 +4,7 @@ class SyojisController < ApplicationController
   # GET /syojis
   # GET /syojis.json
   def index
-    @syojis = Syoji.all
+    @syojis = Syoji.where(user_id: session[:usr])
   end
 
   # GET /syojis/1
@@ -52,6 +52,10 @@ class SyojisController < ApplicationController
     @syoji.snooze            = params[:syoji][:snooze]
     @syoji.category          = params[:syoji][:category]
     
+    if session[:usr].present?
+      @syoji.user_id = session[:usr]
+    end
+
     if @syoji.save
       redirect_to syojis_path
     else
@@ -90,6 +94,10 @@ class SyojisController < ApplicationController
     @syoji.snooze            = params[:syoji][:snooze]
     @syoji.category          = params[:syoji][:category]
     
+    if session[:usr].present?
+      @syoji.user_id = session[:usr]
+    end
+
     if @syoji.save
       redirect_to syojis_path
     else
@@ -119,6 +127,6 @@ class SyojisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_j, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category)
+      params.require(:syoji).permit(:title_syo, :artist, :color_j, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category, :user_id)
     end
 end

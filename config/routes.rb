@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :genres
+  get 'syoji_t/index'
+
   resources :syojis
   resources :syojis do
     member do

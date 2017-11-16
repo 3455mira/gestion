@@ -1,0 +1,37 @@
+<%= form_with(model: genre, local: true) do |form| %>
+  <% if genre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+
+      <ul>
+      <% genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :color_g %>
+    <%= form.text_field :color_g, id: :genre_color_g %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_g %>
+    <%= form.text_field :image_g, id: :genre_image_g %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_binary %>
+    <%= form.text_field :image_binary, id: :genre_image_binary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_type %>
+    <%= form.text_field :image_type, id: :genre_image_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

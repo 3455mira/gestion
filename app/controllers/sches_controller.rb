@@ -4,7 +4,7 @@ class SchesController < ApplicationController
   # GET /sches
   # GET /sches.json
   def index
-    @sches = Sche.all.order(notification_time: "DESC")
+    @sches = Sche.where(user_id: session[:usr]).order(notification_time: "DESC")
   end
 
   # GET /sches/1
@@ -45,6 +45,10 @@ class SchesController < ApplicationController
                                           00)
     @sch.snooze            = params[:sche][:snooze]
 
+    if session[:usr].present?
+      @sch.user_id = session[:usr]
+    end
+
     if @sch.save
       redirect_to sches_path
     else
@@ -75,6 +79,11 @@ class SchesController < ApplicationController
                                           params[:sche][:'notification_time(5i)'].to_i,
                                           00)
     @sch.snooze            = params[:sche][:snooze]
+    @sch.user_id           = params[:sche][:user_id]
+
+    if session[:usr].present?
+      @sch.user_id = session[:usr]
+    end
 
     if @sch.save
       redirect_to sches_path
@@ -100,6 +109,6 @@ class SchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sch_params
-      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :place, :memo_sche, :notification_sche, :mail_sche, :notification_time, :snooze)
+      params.require(:sche).permit(:schedule_at, :name_sche, :icon_id, :place, :memo_sche, :notification_sche, :mail_sche, :notification_time, :snooze, :user_id)
     end
 end
