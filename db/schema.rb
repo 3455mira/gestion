@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115010413) do
+ActiveRecord::Schema.define(version: 20171116011309) do
+
+  create_table "genres", force: :cascade do |t|
+    t.string "color_g"
+    t.string "image_g"
+    t.binary "image_binary"
+    t.string "image_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "icons", force: :cascade do |t|
     t.string "name_icon"

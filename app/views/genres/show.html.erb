@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Color g:</strong>
+  <%= @genre.color_g %>
+</p>
+
+<p>
+  <strong>Image g:</strong>
+  <%= @genre.image_g %>
+</p>
+
+<p>
+  <strong>Image binary:</strong>
+  <%= @genre.image_binary %>
+</p>
+
+<p>
+  <strong>Image type:</strong>
+  <%= @genre.image_type %>
+</p>
+
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
