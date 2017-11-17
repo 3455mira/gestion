@@ -24,32 +24,44 @@ class GenresController < ApplicationController
   # POST /genres
   # POST /genres.json
   def create
-    @genre = Genre.new(genre_params)
+    @genre = Genre.new
+    genle.color_g=params[:genle][:color_g]
+    genle.image_g=params[:genle][:image_g]
+    genle.image_binary=params[:genle][:image_binary]
+    genle.image_type=params[:genle][:image_type]
+  ]if params[:genle][:image_g].present?
+    @genle.image_g = params[:genle][:image_g].original_filename
+    @genle.image_type = params[:genle][:image_g].content_type
+    @genle.image_binary = params[:genle][:image_g].read
+  end
 
-    respond_to do |format|
-      if @genre.save
-        format.html { redirect_to @genre, notice: 'Genre was successfully created.' }
-        format.json { render :show, status: :created, location: @genre }
-      else
-        format.html { render :new }
-        format.json { render json: @genre.errors, status: :unprocessable_entity }
-      end
-    end
+  if @genle.save
+    redirect_to genles_path
+  else
+    rerender :new
+  end
   end
 
   # PATCH/PUT /genres/1
   # PATCH/PUT /genres/1.json
   def update
-    respond_to do |format|
-      if @genre.update(genre_params)
-        format.html { redirect_to @genre, notice: 'Genre was successfully updated.' }
-        format.json { render :show, status: :ok, location: @genre }
-      else
-        format.html { render :edit }
-        format.json { render json: @genre.errors, status: :unprocessable_entity }
-      end
+      @genre = Genre.find(params[:id])
+      genle.color_g=params[:genle][:color_g]
+      genle.image_g=params[:genle][:image_g]
+      genle.image_binary=params[:genle][:image_binary]
+      genle.image_type=params[:genle][:image_type]
+    ]if params[:genle][:image_g].present?
+      @genle.image_g = params[:genle][:image_g].original_filename
+      @genle.image_type = params[:genle][:image_g].content_type
+      @genle.image_binary = params[:genle][:image_g].read
     end
-  end
+  
+    if @genle.save
+      redirect_to genles_path
+    else
+      rerender :edit
+    end
+    end
 
   # DELETE /genres/1
   # DELETE /genres/1.json
@@ -70,5 +82,9 @@ class GenresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def genre_params
       params.require(:genre).permit(:color_g, :image_g, :image_binary, :image_type)
+    end
+    def show_image
+      @genle = Genle.find(params[:id])
+      send_data @genle.image_g, :filename =>@genle.image_g, :type =>@genle.image_type, :disposition => 'inline'
     end
 end
