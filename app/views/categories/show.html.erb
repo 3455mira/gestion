@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>カテゴリー名:</strong>
+  <%= @category.category %>
+</p>
+
+<%= link_to '編集', edit_category_path(@category) %> |
+<%= link_to '一覧へ', categories_path %>
