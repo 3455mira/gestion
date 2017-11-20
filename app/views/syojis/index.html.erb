@@ -13,10 +13,6 @@
       <th>メモ</th>
       <th>リンク</th>
       <th>発売日</th>
-      <th>アプリ内通知</th>
-      <th>メール通知</th>
-      <th>通知時間</th>
-      <th>スヌーズ</th>
       <th>カテゴリー</th>
       <th colspan="3"></th>
     </tr>
@@ -31,12 +27,10 @@
         <td><%= syoji.title_j %></td>
         <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
         <td><%= syoji.memo_syo %></td>
-        <td><%= link_to 'HPへ', syoji.url_syo %></td>
+        <td><% if syoji.url_syo.present? %>
+              <%= link_to 'HPへ', syoji.url_syo %>
+            <% end %></td>
         <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
-        <td><%= syoji.notification_syo %></td>
-        <td><%= syoji.mail_syo %></td>
-        <td><%= syoji.notification_time.strftime('20%y/%m/%d %H:%M') %></td>
-        <td><%= syoji.snooze %></td>
         <td><%= syoji.category %></td>
         <td><%= link_to '詳細', syoji %></td>
         <td><%= link_to '編集', edit_syoji_path(syoji) %></td>

@@ -2,6 +2,14 @@
 
 <h1>所持品通知</h1>
 
+<% kensu = 0 %>
+<% @syoji_ts.each do |syoji_t| %>
+  <% if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
+  kensu += 1
+   end %>
+<% end %>
+<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p>
+
 <table>
   <thead>
     <tr>
@@ -13,17 +21,29 @@
   </thead>
 
   <tbody>
-    <% @syoji_ts.each do |syoji| %>
-      <tr>
-        <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
-        <td><%= syoji.title_syo %></td>
-        <td><%= syoji.artist %></td>
-        <td><%= link_to '詳細', syoji %></td>
-        <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
-        <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @syoji_ts.each do |syoji_t| %>
+      <% if syoji_t.notification_syo == true %>
+        <% if syoji_t.notification_time <= DateTime.now %>
+          <% if syoji_t.release < Date.today
+               namecolor = "red"
+             else
+              if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
+                namecolor = "blue"
+              else
+                namecolor = "black"
+              end
+             end
+          %>
+        <tr>
+          <td style = "color : <%= namecolor %>"><%= syoji_t.release.strftime('20%y/%m/%d') %></td>
+          <td><%= syoji_t.title_syo %></td>
+          <td><%= syoji_t.artist %></td>
+          <td><%= link_to '詳細', syoji_t %></td>
+          <td><%= link_to '編集', edit_syoji_path(syoji_t) %></td>
+          <td><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
-
-<br>
