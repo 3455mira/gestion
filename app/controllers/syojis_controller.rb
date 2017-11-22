@@ -27,7 +27,7 @@ class SyojisController < ApplicationController
     @syoji = Syoji.new
     @syoji.title_syo         = params[:syoji][:title_syo]
     @syoji.artist            = params[:syoji][:artist]
-    @syoji.color_j           = params[:syoji][:color_j]
+    @syoji.color_id           = params[:syoji][:color_id]
     @syoji.title_j           = params[:syoji][:title_j]
 
     if params[:syoji][:image_syo].present?
@@ -69,7 +69,7 @@ class SyojisController < ApplicationController
     @syoji = Syoji.find(params[:id])
     @syoji.title_syo         = params[:syoji][:title_syo]
     @syoji.artist            = params[:syoji][:artist]
-    @syoji.color_j           = params[:syoji][:color_j]
+    @syoji.color_id           = params[:syoji][:color_id]
     @syoji.title_j           = params[:syoji][:title_j]
 
     if params[:syoji][:image_syo].present?
@@ -127,6 +127,6 @@ class SyojisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_j, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
+      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end

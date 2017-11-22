@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20171120010339) do
   create_table "syojis", force: :cascade do |t|
     t.string "title_syo"
     t.string "artist"
-    t.integer "color_j"
+    t.integer "color_id"
     t.string "title_j"
     t.date "release"
     t.string "image_syo"
