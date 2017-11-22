@@ -12,24 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :color_g %>
+    <%= form.label :ジャンルカラー%>
     <%= form.text_field :color_g, id: :genre_color_g %>
   </div>
 
   <div class="field">
-    <%= form.label :image_g %>
-    <%= form.text_field :image_g, id: :genre_image_g %>
+    <%= form.label :画像 %>
+    <%= form.file_field :image_g, id: :genre_image_g %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_binary %>
-    <%= form.text_field :image_binary, id: :genre_image_binary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_type %>
-    <%= form.text_field :image_type, id: :genre_image_type %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

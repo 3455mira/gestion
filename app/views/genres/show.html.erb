@@ -7,17 +7,7 @@
 
 <p>
   <strong>Image g:</strong>
-  <%= @genre.image_g %>
-</p>
-
-<p>
-  <strong>Image binary:</strong>
-  <%= @genre.image_binary %>
-</p>
-
-<p>
-  <strong>Image type:</strong>
-  <%= @genre.image_type %>
+  <%= image_tag show_image_genre_path(@genre), :width => 50 %>
 </p>
 
 <%= link_to 'Edit', edit_genre_path(@genre) %> |

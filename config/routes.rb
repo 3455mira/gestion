@@ -28,9 +28,9 @@ Rails.application.routes.draw do
       get 'show_image'
     end
   end
-  resources :genles
-  resources :genles do
-    menber do
+  resources :genres
+  resources :genres do
+    member do
       get 'show_image'
     end
   end

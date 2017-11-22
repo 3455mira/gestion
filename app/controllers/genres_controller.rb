@@ -25,20 +25,18 @@ class GenresController < ApplicationController
   # POST /genres.json
   def create
     @genre = Genre.new
-    genle.color_g=params[:genle][:color_g]
-    genle.image_g=params[:genle][:image_g]
-    genle.image_binary=params[:genle][:image_binary]
-    genle.image_type=params[:genle][:image_type]
-  ]if params[:genle][:image_g].present?
-    @genle.image_g = params[:genle][:image_g].original_filename
-    @genle.image_type = params[:genle][:image_g].content_type
-    @genle.image_binary = params[:genle][:image_g].read
+    @genre.color_g = params[:genre][:color_g]
+    @genre.image_g = params[:genre][:image_g]
+  if params[:genre][:image_g].present?
+    @genre.image_g = params[:genre][:image_g].original_filename
+    @genre.image_type = params[:genre][:image_g].content_type
+    @genre.image_binary = params[:genre][:image_g].read
   end
 
-  if @genle.save
-    redirect_to genles_path
+  if @genre.save
+    redirect_to genres_path
   else
-    rerender :new
+    render :new
   end
   end
 
@@ -46,20 +44,18 @@ class GenresController < ApplicationController
   # PATCH/PUT /genres/1.json
   def update
       @genre = Genre.find(params[:id])
-      genle.color_g=params[:genle][:color_g]
-      genle.image_g=params[:genle][:image_g]
-      genle.image_binary=params[:genle][:image_binary]
-      genle.image_type=params[:genle][:image_type]
-    ]if params[:genle][:image_g].present?
-      @genle.image_g = params[:genle][:image_g].original_filename
-      @genle.image_type = params[:genle][:image_g].content_type
-      @genle.image_binary = params[:genle][:image_g].read
+      @genre.color_g = params[:genre][:color_g]
+      @genre.image_g = params[:genre][:image_g]
+    if params[:genre][:image_g].present?
+      @genre.image_g = params[:genre][:image_g].original_filename
+      @genre.image_type = params[:genre][:image_g].content_type
+      @genre.image_binary = params[:genre][:image_g].read
     end
   
-    if @genle.save
-      redirect_to genles_path
+    if @genre.save
+      redirect_to genres_path
     else
-      rerender :edit
+      render :edit
     end
     end
 
@@ -72,7 +68,10 @@ class GenresController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def show_image
+    @genre = Genre.find(params[:id])
+    send_data @genre.image_binary, :filename => @genre.image_g, :type => @genre.image_type, :disposition => 'inline'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_genre
@@ -82,9 +81,5 @@ class GenresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def genre_params
       params.require(:genre).permit(:color_g, :image_g, :image_binary, :image_type)
-    end
-    def show_image
-      @genle = Genle.find(params[:id])
-      send_data @genle.image_g, :filename =>@genle.image_g, :type =>@genle.image_type, :disposition => 'inline'
     end
 end
