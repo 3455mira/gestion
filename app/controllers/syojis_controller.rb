@@ -50,7 +50,7 @@ class SyojisController < ApplicationController
                                             params[:syoji][:'notification_time(5i)'].to_i,
                                             00)
     @syoji.snooze            = params[:syoji][:snooze]
-    @syoji.category          = params[:syoji][:category]
+    @syoji.category_id       = params[:syoji][:category_id]
     
     if session[:usr].present?
       @syoji.user_id = session[:usr]
@@ -92,7 +92,7 @@ class SyojisController < ApplicationController
                                             params[:syoji][:'notification_time(5i)'].to_i,
                                             00)
     @syoji.snooze            = params[:syoji][:snooze]
-    @syoji.category          = params[:syoji][:category]
+    @syoji.category_id       = params[:syoji][:category_id]
     
     if session[:usr].present?
       @syoji.user_id = session[:usr]
@@ -127,6 +127,6 @@ class SyojisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_j, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category, :user_id)
+      params.require(:syoji).permit(:title_syo, :artist, :color_j, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end

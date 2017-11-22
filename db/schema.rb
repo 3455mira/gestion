@@ -80,8 +80,7 @@ ActiveRecord::Schema.define(version: 20171120010339) do
     t.string "artist"
     t.integer "color_j"
     t.string "title_j"
-    t.datetime "release"
-    t.boolean "snooze"
+    t.date "release"
     t.string "image_syo"
     t.binary "image_binary"
     t.string "image_type"
@@ -90,7 +89,8 @@ ActiveRecord::Schema.define(version: 20171120010339) do
     t.boolean "notification_syo"
     t.boolean "mail_syo"
     t.datetime "notification_time"
-    t.integer "category"
+    t.boolean "snooze"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

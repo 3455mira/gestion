@@ -1,5 +1,7 @@
 class Syoji < ApplicationRecord
 
+    belongs_to :category
+
     validate :error_check
     def error_check
         # title_syo が空のときにエラーメッセージ

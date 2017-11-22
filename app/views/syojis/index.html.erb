@@ -31,7 +31,9 @@
               <%= link_to 'HPへ', syoji.url_syo %>
             <% end %></td>
         <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
-        <td><%= syoji.category %></td>
+        <td><% if syoji.category_id.present? %>
+                <%= syoji.category.category %>
+            <% end %></td>
         <td><%= link_to '詳細', syoji %></td>
         <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
         <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>

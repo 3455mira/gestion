@@ -15,7 +15,7 @@ class CreateSyojis < ActiveRecord::Migration[5.1]
       t.boolean :mail_syo
       t.datetime :notification_time
       t.boolean :snooze
-      t.integer :category
+      t.integer :category_id
 
       t.timestamps
     end

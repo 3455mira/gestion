@@ -73,7 +73,7 @@
 
   <div class="field">
     <%= form.label :カテゴリー %>
-    <%= form.number_field :category, id: :syoji_category %>
+    <%= form.select :category_id, Category.all.map { |c|[c.category, c.id] } %>
   </div>
 
   <div class="actions">
