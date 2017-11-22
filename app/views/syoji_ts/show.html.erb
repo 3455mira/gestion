@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Release:</strong>
+  <%= @syoji_t.release %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @syoji_t.title %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @syoji_t.artist %>
+</p>
+
+<%= link_to 'Edit', edit_syoji_t_path(@syoji_t) %> |
+<%= link_to 'Back', syoji_ts_path %>

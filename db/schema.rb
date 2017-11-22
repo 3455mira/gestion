@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116011309) do
+ActiveRecord::Schema.define(version: 20171120010339) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "color_g"
@@ -58,6 +65,14 @@ ActiveRecord::Schema.define(version: 20171116011309) do
     t.datetime "updated_at", null: false
     t.boolean "notification_sche"
     t.integer "user_id"
+  end
+
+  create_table "syoji_ts", force: :cascade do |t|
+    t.date "release"
+    t.string "title"
+    t.string "artist"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "syojis", force: :cascade do |t|

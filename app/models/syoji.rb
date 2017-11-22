@@ -12,7 +12,7 @@ class Syoji < ApplicationRecord
             if notification_time < Time.now
                 errors[:base] << '過去日は選択できません'
             else
-                if notification_time > schedule_at
+                if notification_time > release
                   errors[:base] << '発売日より後は選択できません'
                 end
             end
