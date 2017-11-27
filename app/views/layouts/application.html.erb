@@ -13,9 +13,9 @@
     <%= link_to 'スケジュール', sches_path %> |
     <%= link_to '所持品',syojis_path %> |
     <%= link_to '予定通知', sche_ts_path %> |
-    <%= link_to '発売通知', syoji_ts_path %> |
+    <%= link_to '発売通知', syoji_ts_path %> 
     <% if session[:usr].present? %>
-    <%= image_tag show_image_user_path(session[:usr]),:width => 37 %> |
+    | <%= image_tag show_image_user_path(session[:usr]),:width => 37 %> |
     <%= link_to "ログオフ",logins_logoff_path %>
     <% end %>
   </body>
