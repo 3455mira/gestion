@@ -46,10 +46,19 @@
     <%= url_field :syoji, :url_syo %>
   </div>
 
+
   <div class="field">
-  <%= form.label :発売日 %>
-  <%= form.date_select :release, id: :syoji_release %>
-</div>
+    <%= form.label :所持状態 %>
+    <%= form.label :所持 %>
+    <%= form.radio_button(:have, "1")%>
+    <%= form.label :未所持 %>
+    <%= form.radio_button(:have, "2")%>
+  </div>
+
+  <div class="field">
+    <%= form.label :発売日 %>
+    <%= form.date_select :release, id: :syoji_release %>
+  </div>
 
   <div class="field">
     <%= form.label :アプリ内通知 %>

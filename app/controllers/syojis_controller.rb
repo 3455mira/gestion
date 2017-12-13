@@ -1,10 +1,12 @@
 class SyojisController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_syoji, only: [:show, :edit, :update, :destroy]
 
   # GET /syojis
   # GET /syojis.json
   def index
-    @syojis = Syoji.where(user_id: session[:usr])
+    @syojis1 = Syoji.where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
+    @syojis2 = Syoji.where(have: '2').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
   end
 
   # GET /syojis/1
@@ -38,6 +40,7 @@ class SyojisController < ApplicationController
 
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
+    @syoji.have              = params[:syoji][:have]
     @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
                                         params[:syoji][:'release(2i)'].to_i,
                                         params[:syoji][:'release(3i)'].to_i,)
@@ -80,6 +83,7 @@ class SyojisController < ApplicationController
 
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
+    @syoji.have              = params[:syoji][:have]
     @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
                                         params[:syoji][:'release(2i)'].to_i,
                                         params[:syoji][:'release(3i)'].to_i,)
@@ -121,12 +125,20 @@ class SyojisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_syoji
-      @syoji = Syoji.find(params[:id])
-    end
+  def set_syoji
+    @syoji = Syoji.find(params[:id])
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+ 
+  def sort_column
+      Syoji.column_names.include?(params[:sort]) ? params[:sort] : "title_syo"
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
+      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end

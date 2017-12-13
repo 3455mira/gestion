@@ -4,42 +4,73 @@
 
 <table>
   <thead>
+    <h2>所持</h2>
     <tr>
-      <th>タイトル</th>
-      <th>アーティスト名</th>
-      <th>ジャンルカラー</th>
-      <th>ジャンルタイトル</th>
+      <th><%= sortable "title_syo", "タイトル" %></th>
+      <th><%= sortable "artist", "アーティスト名" %></th>
       <th>ジャケット</th>
-      <th>メモ</th>
       <th>リンク</th>
-      <th>発売日</th>
-      <th>カテゴリー</th>
+      <th><%= sortable "release", "発売日"%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @syojis.each do |syoji| %>
+    <% @syojis1.each do |syoji| %>
       <tr>
         <td><%= syoji.title_syo %></td>
         <td><%= syoji.artist %></td>
-        <td><%= syoji.color_id %></td>
-        <td><%= syoji.title_j %></td>
-        <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
-        <td><%= syoji.memo_syo %></td>
+        <% if syoji.image_syo.present? %>
+          <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
+        <% else %>
+          <td>未登録</td>
+        <% end %>
         <td><% if syoji.url_syo.present? %>
               <%= link_to 'HPへ', syoji.url_syo %>
             <% end %></td>
         <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
-        <td><% if syoji.category_id.present? %>
-                <%= syoji.category.category %>
-            <% end %></td>
+        <td><%= syoji.have %></td>
         <td><%= link_to '詳細', syoji %></td>
         <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
         <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+</table>
+
+<table>
+<thead>
+  <h2>未所持</h2>
+  <tr>
+    <th><%= sortable "title_syo", "タイトル" %></th>
+    <th><%= sortable "artist", "アーティスト名" %></th>
+    <th>ジャケット</th>
+    <th>リンク</th>
+    <th><%= sortable "release", "発売日"%></th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @syojis2.each do |syoji| %>
+    <tr>
+      <td><%= syoji.title_syo %></td>
+      <td><%= syoji.artist %></td>
+      <% if syoji.image_syo.present? %>
+        <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
+      <% else %>
+        <td>未登録</td>
+      <% end %>
+      <td><% if syoji.url_syo.present? %>
+            <%= link_to 'HPへ', syoji.url_syo %>
+          <% end %></td>
+      <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
+      <td><%= link_to '詳細', syoji %></td>
+      <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
+      <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 
 <br>
