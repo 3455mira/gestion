@@ -19,6 +19,10 @@ class Syoji < ApplicationRecord
                 end
             end
         end
+
+        if have.blank?
+            errors[:base] << '所持状態を入力してください'
+        end
     end
 
 end

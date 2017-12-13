@@ -5,7 +5,7 @@ class SyojisController < ApplicationController
   # GET /syojis
   # GET /syojis.json
   def index
-    @syojis1 = Syoji.where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
+    @syojis1 = Syoji.where(have: '1').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
     @syojis2 = Syoji.where(have: '2').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
   end
 
