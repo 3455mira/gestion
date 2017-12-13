@@ -1,6 +1,7 @@
 class Syoji < ApplicationRecord
 
     belongs_to :category
+    belongs_to :genre
 
     validate :error_check
     def error_check

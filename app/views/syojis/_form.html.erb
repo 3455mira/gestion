@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :ジャンルカラー %>
-    <%= form.number_field :color_j, in: 0.0..7.0 %>
+    <%= form.select :color_id, Genre.all.map {|g|[g.image_g, g.id]} %>
   </div>
 
   <div class="field">
