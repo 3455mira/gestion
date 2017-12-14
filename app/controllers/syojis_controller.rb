@@ -142,17 +142,17 @@ class SyojisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_syoji
-    @syoji = Syoji.find(params[:id])
-  end
+    def set_syoji
+      @syoji = Syoji.find(params[:id])
+    end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
  
-  def sort_column
+    def sort_column
       Syoji.column_names.include?(params[:sort]) ? params[:sort] : "title_syo"
-  end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params

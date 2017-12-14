@@ -43,6 +43,9 @@
 <p>
 <strong>所持巻数：</strong>
   <%= @syoji.volume %>
+  <% if @syoji.volume.present? %>
+     巻
+  <% end %>
 </p>
 
 <p>
