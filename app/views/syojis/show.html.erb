@@ -32,12 +32,17 @@
 
 <p>
   <strong>リンク：</strong>
-  <%= @syoji.url_syo %>
+  <%= link_to @syoji.url_syo, @syoji.url_syo %>
 </p>
 
 <p>
 <strong>所持状態：</strong>
   <%= @syoji.have %>
+</p>
+
+<p>
+<strong>所持巻数：</strong>
+  <%= @syoji.volume %>
 </p>
 
 <p>

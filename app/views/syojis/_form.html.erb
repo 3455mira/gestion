@@ -58,6 +58,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :所持巻数 %>
+    <%= number_field(:syoji, :volume, in: 1.0..200, step: 1) %>
+  </div>
+
+  <div class="field">
     <%= form.label :発売日 %>
     <%= form.date_select :release, id: :syoji_release %>
   </div>

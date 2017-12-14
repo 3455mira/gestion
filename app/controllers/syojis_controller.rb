@@ -43,14 +43,15 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
+    @syoji.volume            = params[:syoji][:volume]
 
-    if params[:syoji][:have] == 3
+    if @syoji.have == 3
       @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
                                           params[:syoji][:'release(2i)'].to_i,
                                           params[:syoji][:'release(3i)'].to_i,)
       @syoji.notification_syo  = params[:syoji][:notification_syo]
-      @syoji.mail_syo          = params[:syoji][:mail_syo]
-      if params[:syoji][notification_syo].present? or params[:syoji][mail_syo].present?
+      @syoji.mail_syo          = params[:syoji][:mail_syo] 
+      if @syoji.notification_syo == true or @syoji.mail_syo == true     
         @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
                                                 params[:syoji][:'notification_time(2i)'].to_i,
                                                 params[:syoji][:'notification_time(3i)'].to_i,
@@ -93,14 +94,15 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
+    @syoji.volume            = params[:syoji][:volume]
 
-    if params[:syoji][:have] == 3
+    if @syoji.have == 3
       @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
                                           params[:syoji][:'release(2i)'].to_i,
                                           params[:syoji][:'release(3i)'].to_i,)
       @syoji.notification_syo  = params[:syoji][:notification_syo]
       @syoji.mail_syo          = params[:syoji][:mail_syo]
-      if params[:syoji][notification_syo].present? or params[:syoji][mail_syo].present?
+      if @syoji.notification_syo == true or @syoji.mail_syo == true
         @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
                                                 params[:syoji][:'notification_time(2i)'].to_i,
                                                 params[:syoji][:'notification_time(3i)'].to_i,
@@ -110,7 +112,7 @@ class SyojisController < ApplicationController
         @syoji.snooze            = params[:syoji][:snooze]
       end
     end
-    
+
     @syoji.category_id       = params[:syoji][:category_id]
     
     if session[:usr].present?
@@ -154,6 +156,6 @@ class SyojisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
+      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :volume, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end
