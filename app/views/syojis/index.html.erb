@@ -20,20 +20,12 @@
       <tr>
         <td><%= syoji.title_syo %></td>
         <td><%= syoji.artist %></td>
-<<<<<<< HEAD
         <td><% if syoji.color_id.present? %>
         <%= syoji.genre.image_g %>
     <% end %></td>
         <td><%= syoji.title_j %></td>
         <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
         <td><%= syoji.memo_syo %></td>
-=======
-        <% if syoji.image_syo.present? %>
-          <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
-        <% else %>
-          <td>未登録</td>
-        <% end %>
->>>>>>> fdb7b6b9eda683780eb9e8c7c75c8dbb73ede9c8
         <td><% if syoji.url_syo.present? %>
               <%= link_to 'HPへ', syoji.url_syo %>
             <% end %></td>
