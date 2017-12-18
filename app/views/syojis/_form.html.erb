@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :巻数 %>
+    <%= number_field(:syoji, :volume, in: 1.0..200, step: 1) %>
+  </div>
+
+  <div class="field">
     <%= form.label :アーティスト名 %>
     <%= form.text_field :artist, id: :syoji_artist %>
   </div>

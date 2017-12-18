@@ -6,6 +6,16 @@
 </p>
 
 <p>
+<% if @syoji.have != 1 %>
+<strong>巻数：</strong>
+  <%= @syoji.volume %>
+  <% if @syoji.volume.present? %>
+     巻
+  <% end %>
+<% end %>
+</p>
+
+<p>
   <strong>アーティスト名：</strong>
   <%= @syoji.artist %>
 </p>
