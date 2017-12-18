@@ -3,7 +3,7 @@ class CreateSyojis < ActiveRecord::Migration[5.1]
     create_table :syojis do |t|
       t.string :title_syo
       t.string :artist
-      t.integer :color_j
+      t.integer :color_id
       t.string :title_j
       t.date :release
       t.string :image_syo

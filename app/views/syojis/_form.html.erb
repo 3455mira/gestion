@@ -23,7 +23,11 @@
 
   <div class="field">
     <%= form.label :ジャンルカラー %>
+<<<<<<< HEAD
     <%= form.select :color_id, Genre.all.map {|g|[g.image_g, g.id]} %>
+=======
+    <%= form.number_field :color_id, in: 0.0..7.0 %>
+>>>>>>> fdb7b6b9eda683780eb9e8c7c75c8dbb73ede9c8
   </div>
 
   <div class="field">
@@ -46,10 +50,19 @@
     <%= url_field :syoji, :url_syo %>
   </div>
 
+
   <div class="field">
-  <%= form.label :発売日 %>
-  <%= form.date_select :release, id: :syoji_release %>
-</div>
+    <%= form.label :所持状態 %>
+    <%= form.label :所持 %>
+    <%= form.radio_button(:have, "1")%>
+    <%= form.label :未所持 %>
+    <%= form.radio_button(:have, "2")%>
+  </div>
+
+  <div class="field">
+    <%= form.label :発売日 %>
+    <%= form.date_select :release, id: :syoji_release %>
+  </div>
 
   <div class="field">
     <%= form.label :アプリ内通知 %>
