@@ -43,7 +43,7 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
-    @syoji.volume            = params[:syoji][:volume]
+    @syoji.volume_have       = params[:syoji][:volume_have]
 
     if @syoji.have == 3
       @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
@@ -94,7 +94,7 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
-    @syoji.volume            = params[:syoji][:volume]
+    @syoji.volume_have       = params[:syoji][:volume_have]
 
     if @syoji.have == 3
       @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
@@ -156,6 +156,6 @@ class SyojisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :volume, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
+      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :volume_have, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end
