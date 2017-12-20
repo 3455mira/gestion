@@ -1,8 +1,9 @@
 class Sche < ApplicationRecord
+  validate :error_check
 
   has_many :sche_ts
 
-  validate :error_check
+  belongs_to :icon
 
   def error_check
     # name_sche が空のときにエラーメッセージ
