@@ -47,7 +47,14 @@
 
 <p>
 <strong>所持状態：</strong>
-  <%= @syoji.have %>
+  <% case @syoji.have %>
+    <% when 1 %>
+      持っている
+    <% when 2 %>
+      欲しい（発売済み）
+    <% when 3 %>
+      欲しい（未発売）
+  <% end %>
 </p>
 
 <p>
