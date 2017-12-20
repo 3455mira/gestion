@@ -1,0 +1,2 @@
+module RinkHelper
+end
