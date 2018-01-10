@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 20171214024415) do
   create_table "syojis", force: :cascade do |t|
     t.string "title_syo"
     t.string "artist"
-    t.integer "color_j"
+    t.integer "color_id"
     t.string "title_j"
-    t.datetime "release"
+    t.date "release"
     t.string "image_syo"
     t.binary "image_binary"
     t.string "image_type"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171214024415) do
     t.boolean "mail_syo"
     t.datetime "notification_time"
     t.boolean "snooze"
-    t.integer "category"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
