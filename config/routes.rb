@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'rink/index'
+
   resources :categories
   resources :syoji_ts
   resources :genres

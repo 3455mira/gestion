@@ -5,8 +5,9 @@ class SyojisController < ApplicationController
   # GET /syojis
   # GET /syojis.json
   def index
-    @syojis1 = Syoji.where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
+    @syojis1 = Syoji.where(have: '1').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
     @syojis2 = Syoji.where(have: '2').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
+    @syojis3 = Syoji.where(have: '3').where(user_id: session[:usr]).order(sort_column + ' ' + sort_direction)
   end
 
   # GET /syojis/1
@@ -28,7 +29,9 @@ class SyojisController < ApplicationController
   def create
     @syoji = Syoji.new
     @syoji.title_syo         = params[:syoji][:title_syo]
+    @syoji.volume            = params[:syoji][:volume]
     @syoji.artist            = params[:syoji][:artist]
+
     @syoji.color_id           = params[:syoji][:color_id]
     @syoji.title_j           = params[:syoji][:title_j]
 
@@ -41,18 +44,25 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
-    @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
-                                        params[:syoji][:'release(2i)'].to_i,
-                                        params[:syoji][:'release(3i)'].to_i,)
-    @syoji.notification_syo  = params[:syoji][:notification_syo]
-    @syoji.mail_syo          = params[:syoji][:mail_syo]
-    @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
-                                            params[:syoji][:'notification_time(2i)'].to_i,
-                                            params[:syoji][:'notification_time(3i)'].to_i,
-                                            params[:syoji][:'notification_time(4i)'].to_i,
-                                            params[:syoji][:'notification_time(5i)'].to_i,
-                                            00)
-    @syoji.snooze            = params[:syoji][:snooze]
+    @syoji.volume_have       = params[:syoji][:volume_have]
+
+    if @syoji.have == 3
+      @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
+                                          params[:syoji][:'release(2i)'].to_i,
+                                          params[:syoji][:'release(3i)'].to_i,)
+      @syoji.notification_syo  = params[:syoji][:notification_syo]
+      @syoji.mail_syo          = params[:syoji][:mail_syo] 
+      if @syoji.notification_syo == true or @syoji.mail_syo == true     
+        @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
+                                                params[:syoji][:'notification_time(2i)'].to_i,
+                                                params[:syoji][:'notification_time(3i)'].to_i,
+                                                params[:syoji][:'notification_time(4i)'].to_i,
+                                                params[:syoji][:'notification_time(5i)'].to_i,
+                                                00)
+        @syoji.snooze            = params[:syoji][:snooze]
+      end
+    end
+
     @syoji.category_id       = params[:syoji][:category_id]
     
     if session[:usr].present?
@@ -71,7 +81,9 @@ class SyojisController < ApplicationController
   def update
     @syoji = Syoji.find(params[:id])
     @syoji.title_syo         = params[:syoji][:title_syo]
+    @syoji.volume            = params[:syoji][:volume]
     @syoji.artist            = params[:syoji][:artist]
+
     @syoji.color_id           = params[:syoji][:color_id]
     @syoji.title_j           = params[:syoji][:title_j]
 
@@ -84,18 +96,25 @@ class SyojisController < ApplicationController
     @syoji.memo_syo          = params[:syoji][:memo_syo]
     @syoji.url_syo           = params[:syoji][:url_syo]
     @syoji.have              = params[:syoji][:have]
-    @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
-                                        params[:syoji][:'release(2i)'].to_i,
-                                        params[:syoji][:'release(3i)'].to_i,)
-    @syoji.notification_syo  = params[:syoji][:notification_syo]
-    @syoji.mail_syo          = params[:syoji][:mail_syo]
-    @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
-                                            params[:syoji][:'notification_time(2i)'].to_i,
-                                            params[:syoji][:'notification_time(3i)'].to_i,
-                                            params[:syoji][:'notification_time(4i)'].to_i,
-                                            params[:syoji][:'notification_time(5i)'].to_i,
-                                            00)
-    @syoji.snooze            = params[:syoji][:snooze]
+    @syoji.volume_have       = params[:syoji][:volume_have]
+
+    if @syoji.have == 3
+      @syoji.release           = Date.new(params[:syoji][:'release(1i)'].to_i,
+                                          params[:syoji][:'release(2i)'].to_i,
+                                          params[:syoji][:'release(3i)'].to_i,)
+      @syoji.notification_syo  = params[:syoji][:notification_syo]
+      @syoji.mail_syo          = params[:syoji][:mail_syo]
+      if @syoji.notification_syo == true or @syoji.mail_syo == true
+        @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
+                                                params[:syoji][:'notification_time(2i)'].to_i,
+                                                params[:syoji][:'notification_time(3i)'].to_i,
+                                                params[:syoji][:'notification_time(4i)'].to_i,
+                                                params[:syoji][:'notification_time(5i)'].to_i,
+                                                00)
+        @syoji.snooze            = params[:syoji][:snooze]
+      end
+    end
+
     @syoji.category_id       = params[:syoji][:category_id]
     
     if session[:usr].present?
@@ -125,20 +144,20 @@ class SyojisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_syoji
-    @syoji = Syoji.find(params[:id])
-  end
+    def set_syoji
+      @syoji = Syoji.find(params[:id])
+    end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
  
-  def sort_column
+    def sort_column
       Syoji.column_names.include?(params[:sort]) ? params[:sort] : "title_syo"
-  end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def syoji_params
-      params.require(:syoji).permit(:title_syo, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
+      params.require(:syoji).permit(:title_syo, :volume, :artist, :color_id, :title_j, :image_syo, :image_binary, :image_type, :memo_syo, :url_syo, :have, :volume_have, :release, :notification_syo, :mail_syo, :notification_time, :snooze, :category_id, :user_id)
     end
 end

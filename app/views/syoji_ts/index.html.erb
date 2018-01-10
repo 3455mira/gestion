@@ -4,9 +4,11 @@
 
 <% kensu = 0 %>
 <% @syoji_ts.each do |syoji_t| %>
-  <% if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
-  kensu += 1
-   end %>
+  <% if syoji_t.release.present? %>
+    <% if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
+       kensu += 1
+    end %>
+  <% end %>
 <% end %>
 <p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p>
 
@@ -23,15 +25,10 @@
   <tbody>
     <% @syoji_ts.each do |syoji_t| %>
       <% if syoji_t.notification_syo == true %>
+      <% if syoji_t.release.present? %>
         <% if syoji_t.notification_time <= DateTime.now %>
           <% if syoji_t.release < Date.today
                namecolor = "red"
-             else
-              if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
-                namecolor = "blue"
-              else
-                namecolor = "black"
-              end
              end
           %>
         <tr>
@@ -43,6 +40,7 @@
           <td><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
+      <% end %>
       <% end %>
     <% end %>
   </tbody>

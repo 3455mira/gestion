@@ -25,12 +25,6 @@
         <% if sche_t.notification_time <= DateTime.now %>
           <% if sche_t.schedule_at < Date.today
                namecolor = "red"
-             else
-              if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5
-                namecolor = "blue"
-              else
-                namecolor = "black"
-              end
              end
           %>
         <tr>

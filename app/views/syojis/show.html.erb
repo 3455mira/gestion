@@ -6,42 +6,67 @@
 </p>
 
 <p>
-  <strong>アーティスト名:</strong>
+<% if @syoji.have != 1 %>
+<strong>巻数：</strong>
+  <%= @syoji.volume %>
+  <% if @syoji.volume.present? %>
+     巻
+  <% end %>
+<% end %>
+</p>
+
+<p>
+  <strong>アーティスト名：</strong>
   <%= @syoji.artist %>
 </p>
 
 <p>
-  <strong>ジャンルカラー:</strong>
+  <strong>ジャンルカラー：</strong>
   <%= @syoji.color_id %>
 </p>
 
 <p>
-  <strong>ジャンルタイトル:</strong>
+  <strong>ジャンルタイトル：</strong>
   <%= @syoji.title_j %>
 </p>
 
 <p>
-  <strong>ジャケット画像:</strong>
+  <strong>ジャケット画像：</strong>
   <%= @syoji.image_syo %>
 </p>
 
 <p>
-  <strong>メモ:</strong>
+  <strong>メモ：</strong>
   <%= @syoji.memo_syo %>
 </p>
 
 <p>
-  <strong>リンク:</strong>
-  <%= @syoji.url_syo %>
+  <strong>リンク：</strong>
+  <%= link_to @syoji.url_syo, @syoji.url_syo %>
 </p>
 
 <p>
-<strong>所持状態:</strong>
-  <%= @syoji.have %>
+<strong>所持状態：</strong>
+  <% case @syoji.have %>
+    <% when 1 %>
+      持っている
+    <% when 2 %>
+      欲しい（発売済み）
+    <% when 3 %>
+      欲しい（未発売）
+  <% end %>
 </p>
 
 <p>
-<strong>発売日:</strong>
+<strong>所持巻数：</strong>
+  <%= @syoji.volume_have %>
+  <% if @syoji.volume_have.present? %>
+     巻
+  <% end %>
+</p>
+
+<p>
+<strong>発売日：</strong>
 <%= @syoji.release %>
 </p>
 
@@ -51,22 +76,22 @@
 </p>
 
 <p>
-  <strong>メール通知:</strong>
+  <strong>メール通知：</strong>
   <%= @syoji.mail_syo %>
 </p>
 
 <p>
-  <strong>通知時間:</strong>
+  <strong>通知時間：</strong>
   <%= @syoji.notification_time %>
 </p>
 
 <p>
-<strong>スヌーズ:</strong>
+<strong>スヌーズ：</strong>
 <%= @syoji.snooze %>
 </p>
 
 <p>
-  <strong>カテゴリー</strong>
+  <strong>カテゴリー：</strong>
   <%= @syoji.category.category %>
 </p>
 
