@@ -21,7 +21,10 @@
         <%= syoji.genre.image_g %>
     <% end %></td>
         <td><%= syoji.title_j %></td>
-        <td><%= image_tag show_image_syoji_path(syoji), :width =>60 %></td>
+        <td><% if syoji.image_syo.present? %>
+          <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
+        <% else %>
+        <% end %></td>
         <td><%= syoji.memo_syo %></td>
         <td><% if syoji.url_syo.present? %>
               <%= link_to 'HPへ', syoji.url_syo %>
@@ -52,11 +55,10 @@
     <tr>
       <td><%= syoji.title_syo %></td>
       <td><%= syoji.artist %></td>
-      <% if syoji.image_syo.present? %>
-        <td><%= image_tag show_image_syoji_path(syoji), :height =>60 %></td>
+      <td><% if syoji.image_syo.present? %>
+        <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
       <% else %>
-        <td></td>
-      <% end %>
+      <% end %></td>
       <td><%= syoji.volume %>
           <% if syoji.volume.present? %>
             巻
@@ -86,11 +88,10 @@
     <tr>
       <td><%= syoji.title_syo %></td>
       <td><%= syoji.artist %></td>
-      <% if syoji.image_syo.present? %>
-        <td><%= image_tag show_image_syoji_path(syoji), :height =>60 %></td>
+      <td><% if syoji.image_syo.present? %>
+        <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
       <% else %>
-        <td></td>
-      <% end %>
+      <% end %></td>
       <td><% if syoji.release.present? %>
             <%= syoji.release.strftime('20%y/%m/%d') %>
           <% end %></td>
