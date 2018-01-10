@@ -17,7 +17,6 @@
       <tr>
         <td><%= syoji.title_syo %></td>
         <td><%= syoji.artist %></td>
-<<<<<<< HEAD
         <td><% if syoji.color_id.present? %>
         <%= syoji.genre.image_g %>
     <% end %></td>
@@ -29,13 +28,6 @@
             <% end %></td>
         <td><%= syoji.release.strftime('20%y/%m/%d') %></td>
         <td><%= syoji.have %></td>
-=======
-        <% if syoji.image_syo.present? %>
-          <td><%= image_tag show_image_syoji_path(syoji), :height =>60 %></td>
-        <% else %>
-          <td></td>
-        <% end %>
->>>>>>> 00ede410d5f1993bae0f9f8a95e764dd05d51d5b
         <td><%= link_to '詳細', syoji %></td>
         <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
         <td><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></td>
