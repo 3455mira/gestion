@@ -1,7 +1,7 @@
 class Syoji < ApplicationRecord
 
     belongs_to :category
-    belongs_to :genre
+    belongs_to :genre, :foreign_key => "color_id"
 
     validate :error_check
     def error_check

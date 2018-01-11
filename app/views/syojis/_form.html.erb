@@ -29,7 +29,7 @@
   <div class="field">
     <%= form.label :ジャンルカラー %>
     <% Genre.all.map {|g| %>
-     <label><%= form.radio_button :color_id, g.id %><%= image_tag  g.image_g  ,:width => 37  %></label>
+     <span><%= form.radio_button :color_id, g.id %><%= image_tag  g.image_g  ,:width => 37  %></span>
     <% } %>
   </div>
 
