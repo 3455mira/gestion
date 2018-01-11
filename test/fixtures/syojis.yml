@@ -3,7 +3,7 @@
 one:
   title_syo: MyString
   artist: MyString
-  color_j: 1
+  color_id: 1
   title_j: MyString
   release: 2017-11-08 10:41:31
   snooze: false
@@ -20,7 +20,7 @@ one:
 two:
   title_syo: MyString
   artist: MyString
-  color_j: 1
+  color_id: 1
   title_j: MyString
   release: 2017-11-08 10:41:31
   snooze: false
