@@ -21,17 +21,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">The Idea app</a>
+      <a class="navbar-brand" href="/">Gestion じぇすちょん</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/ideas">Ideas</a></li>
+        <li class="active"><a href="/ideas">Gestion Page</a></li>
 
         <!-- ここにめにゅーをついか -->
         <li><a href="/ジャンルリスト">ジャンルリスト</a></li>
-        <li><a href="/ジャンルリスト">HP一覧</a></li>
-        <li><a href="/ジャンルリスト">フォントサイズ</a></li>
-        <li><a href="/ジャンルリスト">カラー</a></li>
+        <li><a href="http://localhost:3000/rink/index">HP一覧</a></li>
+        <li><a href="http://localhost:3000/sches">スケジュール</a></li>
+        <li><a href="http://localhost:3000/syojis">所持品</a></li>
+        <li><a href="http://localhost:3000/tuti/index">通知</a></li>
+        <li><%= link_to "ログオフ",logins_logoff_path %></li>
         <!-- ↑ -->
 
       </ul>
@@ -60,19 +62,11 @@
       <div style="float:left;width:15%"> <a href="http://localhost:3000/syojis" target="_blank"><img alt="Flower" img src="/assets/所持品.png" onMouseOver= this.src="/assets/所持品1.png" onMouseOut= this.src="/assets/所持品.png"   class="img-responsive" /></a>
         </div> 
   </div>
-    <div>
 
-  <div class="container-fluid">
     <%= yield %>
-    <%= link_to 'スケジュール', sches_path %> |
-    <%= link_to '所持品',syojis_path %> |
-    <%= link_to '予定通知', sche_ts_path %> |
-    <%= link_to '発売通知', syoji_ts_path %> 
     <% if session[:usr].present? %>
-    | <%= image_tag show_image_user_path(session[:usr]),:width => 37 %> |
-    <%= link_to "ログオフ",logins_logoff_path %>
+    <%= image_tag show_image_user_path(session[:usr]),:width => 0 %> 
     <% end %>
-  </div>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
