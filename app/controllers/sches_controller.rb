@@ -93,10 +93,6 @@ class SchesController < ApplicationController
       @sch.user_id = session[:usr]
     end
 
-    if session[:usr].present?
-      @sch.user_id = session[:usr]
-    end
-
     if @sch.save
       redirect_to sches_path
     else

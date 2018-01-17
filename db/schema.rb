@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214024416) do
+ActiveRecord::Schema.define(version: 20180117000515) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category"
@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(version: 20171214024416) do
     t.integer "user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "syoji_ts", force: :cascade do |t|
     t.date "release"
     t.string "title"
@@ -80,7 +86,7 @@ ActiveRecord::Schema.define(version: 20171214024416) do
     t.string "artist"
     t.integer "color_id"
     t.string "title_j"
-    t.datetime "release"
+    t.date "release"
     t.string "image_syo"
     t.binary "image_binary"
     t.string "image_type"
