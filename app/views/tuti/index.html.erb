@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>発売日通知</h1>
+<h2>発売日</h2>
 <% kensu = 0 %>
 <% @syoji_ts.each do |syoji_t| %>
   <% if syoji_t.release.present? %>
@@ -45,7 +45,7 @@
 
 
 
-<h1>スケジュール通知</h1>
+<h2>スケジュール</h2>
 <% kensu = 0 %>
 <% @sche_ts.each do |sche_t| %>
   <% if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5

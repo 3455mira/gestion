@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'list_g/index'
+
+  resources :searches
   get 'tuti/index'
 
   get 'rink/index'

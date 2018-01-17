@@ -17,10 +17,6 @@
       <tr>
         <td><%= syoji.title_syo %></td>
         <td><%= syoji.artist %></td>
-        <td><% if syoji.color_id.present? %>
-        <%= syoji.genre.image_g %>
-    <% end %></td>
-        <td><%= syoji.title_j %></td>
         <td><% if syoji.image_syo.present? %>
           <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
         <% else %>
