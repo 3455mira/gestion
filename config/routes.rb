@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'serach/index'
+
+  post 'serach/search'
+
   get 'list_g/index'
 
   resources :searches
