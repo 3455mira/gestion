@@ -2,8 +2,12 @@
 
     
 <% @sche.each do |sche| %>
-    <td><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
-    <td><%= sche.name_sche %></td>
+  <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+  <%= sche.name_sche %><br>
+<% end %>
+<% @syoji.each do |syoji| %>
+  <%= syoji.title_syo %>
+  <%= syoji.artist %><br>
 <% end %>
 <br><br>
 <%= link_to '検索ページへ', serach_index_path %>
