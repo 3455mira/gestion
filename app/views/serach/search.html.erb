@@ -1,0 +1,9 @@
+<h1>検索結果</h1>
+
+    
+<% @sche.each do |sche| %>
+    <td><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
+    <td><%= sche.name_sche %></td>
+<% end %>
+<br><br>
+<%= link_to '検索ページへ', serach_index_path %>
