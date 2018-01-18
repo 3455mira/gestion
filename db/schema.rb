@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180117000515) do
     t.string "artist"
     t.integer "color_id"
     t.string "title_j"
-    t.date "release"
+    t.datetime "release"
     t.string "image_syo"
     t.binary "image_binary"
     t.string "image_type"

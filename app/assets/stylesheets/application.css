@@ -18,13 +18,17 @@
  table, td, th { vertical-align: middle; border: none; }
  th { border-bottom: 1px solid #DDD; }
 
+
+
  .header {
 	position: fixed;	/* ヘッダーを固定する */
 	top: 50px;				/* 上部から配置の基準位置を決める */ 
 	left: 0;			/* 左から配置の基準位置を決める */ 
 	width: 100%;		/* ヘッダーの横幅を指定する */
-	height: 25%;		/* ヘッダーの高さを指定する */
-	padding: 5px;		/* ヘッダーの余白を指定する(上下左右) */
+	height: 19%;		/* ヘッダーの高さを指定する */
+	padding: 0px;		/* ヘッダーの余白を指定する(上下左右) */
 	background-color: #c4e2ff;	/* ヘッダーの背景色を指定する */
 	color: #151058;		/* フォントの色を指定する */
-}	
+ }
+
+ .avator_image {}
