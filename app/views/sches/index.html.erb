@@ -59,6 +59,7 @@
           end
         end
        %>
+      <% if sche.schedule_at >= Date.today - 7 and sche.schedule_at <= Date.today + 7 %> 
       <tr>
         <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
         <td><%= sche.name_sche %></td>
@@ -69,10 +70,11 @@
         <td><%= link_to '編集', edit_sch_path(sche) %></td>
         <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to '新規スケジュール', new_sch_path %>|
+<%= link_to 'スケジュールの追加', new_sch_path %>

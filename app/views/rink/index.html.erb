@@ -15,7 +15,7 @@
   <% @rinks.each do |rink| %>
     <% if rink.url_syo.present? %>
       <tr>
-        <td></td>
+        <td><%= rink.title_syo %></td>
         <td><%= link_to rink.url_syo, rink.url_syo %></td>
       </tr>
     <% end %>

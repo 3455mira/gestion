@@ -22,7 +22,7 @@
 
 <p>
   <strong>ジャンルカラー：</strong>
-  <%= @syoji.color_id %>
+  <%= image_tag show_image_genre_path(@syoji.genre), :width => 50 %>
 </p>
 
 <p>
@@ -32,7 +32,10 @@
 
 <p>
   <strong>ジャケット画像：</strong>
-  <%= @syoji.image_syo %>
+  <% if @syoji.image_syo.present? %>
+    <%= image_tag show_image_syoji_path(@syoji), :height =>60 %>
+  <% else %>
+  <% end %>
 </p>
 
 <p>
@@ -95,5 +98,6 @@
   <%= @syoji.category.category %>
 </p>
 
-<%= link_to '戻る', syojis_path %>|
-<%= link_to '編集', edit_syoji_path(@syoji) %> 
+<%= link_to '一覧へ', syojis_path %>|
+<%= link_to '編集', edit_syoji_path(@syoji) %> |
+<%= link_to '通知画面へ', tuti_index_path %> 
