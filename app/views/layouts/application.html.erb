@@ -11,13 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
     $(document).ready(function() {
-      hsize = $("img #menu1_image").height();
+      hsize = $("#menu_image").height();
       $(".avator_image").css("height", hsize + "px");
     });
+    $(window).load(function() { 
+hsize = $("#menu_image").height(); 
+$(".avator_image").css("height", hsize + "px"); 
+}); 
     $(window).resize(function() {
-      hsize = $("img #menu1_image").height();
+      hsize = $("#menu_image").height();
       $(".avator_image").css("height", hsize + "px");
     });
+
+
+    var element = document.getElementById( "headimg" ) ;
+
+var intervalId = setInterval( function () {
+	if ( element.complete ) {
+		var width = element.naturalWidth ;
+		var height = element.naturalHeight ;
+
+		clearInterval( intervalId ) ;
+	}
+}, 500 ) ;
     </script>
 
   </head>
@@ -55,16 +71,17 @@
   <div class="container-fluid headimage">
     <div class="header row">
     　<div style="float:left;width:2%">&nbsp;</div>
-    　 <div style="float:left;width:15%"> 
+    　 <div style="float:left;width:15%">
+    <a href="http://localhost:3000/users">
     <% if session[:usr].present? %>
     <%= image_tag show_image_user_path(session[:usr]),{ :class => "img-responsive img-circle avator_image"} %>
-      <% end %>
+      <% end %></a>
    　 </div>
    <div style="float:left;width:2%">&nbsp;</div>
-   <div style="float:left;width:15%"> <a href="http://localhost:3000/tuti/index" target="_blank"><img  id="menu1_image" alt="Flower" src="/assets/通知.png" onMouseOver= this.src="/assets/通知1.png" onMouseOut= this.src="/assets/通知.png"  class="img-responsive" /></a>
+   <div style="float:left;width:15%"> <a href="http://localhost:3000/tuti/index" target="_blank"><img  id="menu_image" alt="Flower" src="/assets/通知.png" onMouseOver= this.src="/assets/通知1.png" onMouseOut= this.src="/assets/通知.png"  class="img-responsive" /></a>
    </div>
    <div style="float:left;width:2%">&nbsp;</div>
-   <div style="float:left;width:15%"> <a href="http://localhost:3000/sches" target="_blank"><img alt="Flower" src="/assets/カレンダー.png" onMouseOver= this.src="/assets/カレンダー1.png" onMouseOut= this.src="/assets/カレンダー.png" class="img-responsive" /></a>
+   <div style="float:left;width:15%"> <a href="http://localhost:3000/sches" target="_blank"><img id="oppai" alt="Flower" src="/assets/カレンダー.png" onMouseOver= this.src="/assets/カレンダー1.png" onMouseOut= this.src="/assets/カレンダー.png" class="img-responsive headimg" /></a>
    </div>
    <div style="float:left;width:2%">&nbsp;</div>
    <div style="float:left;width:15%"> <a href="http://localhost:3000/syojis" target="_blank"><img alt="Flower" src="/assets/検索.png" onMouseOver= this.src="/assets/検索1.png" onMouseOut= this.src="/assets/検索.png"  class="img-responsive" /></a>

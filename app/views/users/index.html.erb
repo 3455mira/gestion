@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>ユーザー名</th>
-      <th>メールアドレス</th>
-      <th>パスワード</th>
-      <th>アイコン画像</th>
+      <th>ユーザー名　|</th>
+      <th>　パスワード　|</th>
+      <th>　アイコン画像</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +16,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name_user %></td>
-        <td><%= user.mail_user %></td>
         <td><%= user.pass_user %></td>
         <td><%= image_tag show_image_user_path(user),:width => 100 %></td>
-        <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
