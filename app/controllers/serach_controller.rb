@@ -3,8 +3,15 @@ class SerachController < ApplicationController
   end
 
   def search
-    name=params[:name]
-    @sche = Sche.where(user_id: session[:usr].to_i).where("name_sche like '%"+name+"%'")
-    @syoji = Syoji.where(user_id: session[:usr].to_i).where("title_syo like '%"+name+"%'")
+    @name=params[:name]
+    @time=params[:time]
+    if @name.present?
+      @sche = Sche.where(user_id: session[:usr].to_i).where("name_sche like '%"+@name+"%'")
+      @syoji = Syoji.where(user_id: session[:usr].to_i).where("title_syo like '%"+@name+"%'")
+    end
+    if @time.present?
+      @sche = Sche.where(user_id: session[:usr].to_i).where("schedule_at like '%"+@time+"%'")
+      @syoji = Syoji.where(user_id: session[:usr].to_i).where("release like '%"+@time+"%'")
+    end
   end
 end
