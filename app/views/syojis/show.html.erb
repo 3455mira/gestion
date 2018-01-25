@@ -22,7 +22,9 @@
 
 <p>
   <strong>ジャンルカラー：</strong>
-  <%= image_tag show_image_genre_path(@syoji.genre), :width => 50 %>
+  <% if @syoji.color_id.present? %>
+    <%= image_tag show_image_genre_path(@syoji.genre), :width => 50 %>
+  <% end %>
 </p>
 
 <p>
@@ -34,7 +36,6 @@
   <strong>ジャケット画像：</strong>
   <% if @syoji.image_syo.present? %>
     <%= image_tag show_image_syoji_path(@syoji), :height =>60 %>
-  <% else %>
   <% end %>
 </p>
 
@@ -75,22 +76,40 @@
 
 <p>
   <strong>アプリ内通知：</strong>
-  <%= @syoji.notification_syo %>
+  <% if @syoji.notification_syo == true %>
+    オン
+  <% else %>
+    オフ
+  <% end %>
 </p>
 
+<!--
 <p>
   <strong>メール通知：</strong>
-  <%= @syoji.mail_syo %>
+  <% if @syoji.mail_syo == true %>
+  オン
+<% else %>
+  オフ
+<% end %>
 </p>
+-->
 
 <p>
   <strong>通知時間：</strong>
-  <%= @syoji.notification_time %>
+  <% if @syoji.notification_syo == true %>
+    <%= @syoji.notification_time.strftime('20%y/%m/%d %H:%M') %>
+  <% end %>
 </p>
 
 <p>
 <strong>スヌーズ：</strong>
-<%= @syoji.snooze %>
+<% if @syoji.notification_syo == true %>
+  <% if @syoji.snooze == true %>
+    オン
+  <% else %>
+    オフ
+  <% end %>
+<% end %>
 </p>
 
 <p>

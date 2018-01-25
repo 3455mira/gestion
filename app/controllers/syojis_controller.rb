@@ -51,8 +51,8 @@ class SyojisController < ApplicationController
                                           params[:syoji][:'release(2i)'].to_i,
                                           params[:syoji][:'release(3i)'].to_i,)
       @syoji.notification_syo  = params[:syoji][:notification_syo]
-      @syoji.mail_syo          = params[:syoji][:mail_syo] 
-      if @syoji.notification_syo == true or @syoji.mail_syo == true     
+      #@syoji.mail_syo          = params[:syoji][:mail_syo] 
+      if @syoji.notification_syo == true #or @syoji.mail_syo == true     
         @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
                                                 params[:syoji][:'notification_time(2i)'].to_i,
                                                 params[:syoji][:'notification_time(3i)'].to_i,
@@ -103,8 +103,8 @@ class SyojisController < ApplicationController
                                           params[:syoji][:'release(2i)'].to_i,
                                           params[:syoji][:'release(3i)'].to_i,)
       @syoji.notification_syo  = params[:syoji][:notification_syo]
-      @syoji.mail_syo          = params[:syoji][:mail_syo]
-      if @syoji.notification_syo == true or @syoji.mail_syo == true
+      #@syoji.mail_syo          = params[:syoji][:mail_syo]
+      if @syoji.notification_syo == true #or @syoji.mail_syo == true
         @syoji.notification_time = DateTime.new(params[:syoji][:'notification_time(1i)'].to_i,
                                                 params[:syoji][:'notification_time(2i)'].to_i,
                                                 params[:syoji][:'notification_time(3i)'].to_i,

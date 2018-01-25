@@ -2,9 +2,9 @@
 
 <h2>発売日</h2>
 <% kensu = 0 %>
-<% @syoji_ts.each do |syoji_t| %>
-  <% if syoji_t.release.present? %>
-    <% if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
+<% @syoji.each do |syoji| %>
+  <% if syoji.release.present? %>
+    <% if syoji.release >= Date.today and syoji.release <= Date.today + 5
        kensu += 1
     end %>
   <% end %>
@@ -21,20 +21,20 @@
   </thead>
 
   <tbody>
-    <% @syoji_ts.each do |syoji_t| %>
-      <% if syoji_t.notification_syo == true %>
-      <% if syoji_t.release.present? %>
-        <% if syoji_t.notification_time <= DateTime.now %>
-          <% if syoji_t.release < Date.today
+    <% @syoji.each do |syoji| %>
+      <% if syoji.notification_syo == true %>
+      <% if syoji.release.present? %>
+        <% if syoji.notification_time <= DateTime.now %>
+          <% if syoji.release < Date.today
                namecolor = "red"
              end
           %>
         <tr>
-          <td style = "color : <%= namecolor %>"><%= syoji_t.release.strftime('20%y/%m/%d') %></td>
-          <td><%= syoji_t.title_syo %></td>
-          <td><%= link_to '詳細', syoji_t %></td>
-          <td><%= link_to '編集', edit_syoji_path(syoji_t) %></td>
-          <td><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></td>
+          <td><%= syoji.title_syo %></td>
+          <td><%= link_to '詳細', syoji %></td>
+          <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
+          <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
       <% end %>
@@ -47,8 +47,8 @@
 
 <h2>スケジュール</h2>
 <% kensu = 0 %>
-<% @sche_ts.each do |sche_t| %>
-  <% if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5
+<% @sche.each do |sche| %>
+  <% if sche.schedule_at >= Date.today and sche.schedule_at <= Date.today + 5
   kensu += 1
    end %>
 <% end %>
@@ -64,20 +64,26 @@
   </thead>
 
   <tbody>
-    <% @sche_ts.each do |sche_t| %>
-      <% if sche_t.notification_sche == true %>
-        <% if sche_t.notification_time <= DateTime.now %>
-          <% if sche_t.schedule_at < Date.today
+    <% @sche.each do |sche| %>
+      <% if sche.notification_sche == true %>
+        <% if sche.notification_time <= DateTime.now and sche.schedule_at >= Date.today - 7 %>
+          <% if sche.schedule_at < Date.today
                namecolor = "red"
              end
           %>
         <tr>
-          <td style = "color : <%= namecolor %>"><%= sche_t.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
-          <td><%= sche_t.name_sche %></td>
-          <td><%= link_to '詳細', sche_t %></td>
-          <td><%= link_to '編集', edit_sch_path(sche_t) %></td>
+          <td style = "color : <%= namecolor %>">
+          <% if sche.syujitsu == true %>
+            <%= sche.schedule_at.strftime('20%y/%m/%d') %>
+            終日
+          <% else %>
+            <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+          <% end %></td>
+          <td><%= sche.name_sche %></td>
+          <td><%= link_to '詳細', sche %></td>
+          <td><%= link_to '編集', edit_sch_path(sche) %></td>
           <td><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+        </tr>  
         <% end %>
       <% end %>
     <% end %>

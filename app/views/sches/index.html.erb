@@ -41,8 +41,6 @@
       <th><%= sortable "schedule_at", "日時" %></th>
       <th>予定名</th>
       <th><%= sortable "icon_id", "アイコン" %></th>
-      <th>場所</th>
-      <th>メモ</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -61,11 +59,15 @@
        %>
       <% if sche.schedule_at >= Date.today - 7 and sche.schedule_at <= Date.today + 7 %> 
       <tr>
-        <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
+        <td style = "color : <%= namecolor %>">
+        <% if sche.syujitsu == true %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d') %>
+          終日
+        <% else %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+        <% end %></td>
         <td><%= sche.name_sche %></td>
         <td><%= sche.icon_id %></td>
-        <td><%= sche.place %></td>
-        <td><%= sche.memo_sche %></td>
         <td><%= link_to '詳細', sche %></td>
         <td><%= link_to '編集', edit_sch_path(sche) %></td>
         <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></td>

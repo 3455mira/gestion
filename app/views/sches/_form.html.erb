@@ -11,8 +11,14 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= form.label :日時＊ %>
+    <%= form.label :終日 %>
+    <%= form.check_box :syujitsu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :日時＊（終日を選択時は時間不要） %>
     <%= form.datetime_select :schedule_at %>
   </div>
 
@@ -41,19 +47,26 @@
     <%= form.check_box :notification_sche %>
   </div>
 
+  <!--
   <div class="field">
     <%= form.label :メール通知 %>
     <%= form.check_box :mail_sche %>
   </div>
+  -->
 
   <div class="field">
-    <%= form.label :通知時間 %>    
+    <%= form.label :通知時間（通知がオフ時不要） %>    
     <%= form.datetime_select :notification_time %>
   </div>
 
   <div class="field">
-    <%= form.label :スヌーズ %>
+    <%= form.label :スヌーズ（通知がオフ時不要） %>
     <%= form.check_box :snooze %>
+  </div>
+
+  <div class="field">
+    <%= form.label :HPリンク %>
+    <%= url_field :sche, :url_sche %>
   </div>
 
   <div class="actions">
