@@ -1,50 +1,79 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>日時:</strong>
-  <%= @sch.schedule_at %>
+  <strong>日時：</strong>
+  <% if @sch.syujitsu == true %>
+    <%= @sch.schedule_at.strftime('20%y/%m/%d') %>
+    ・終日
+  <% else %>
+    <%= @sch.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+  <% end %>
 </p>
 
 <p>
-  <strong>予定名:</strong>
+  <strong>予定名：</strong>
   <%= @sch.name_sche %>
 </p>
 
 <p>
-  <strong>アイコン:</strong>
+  <strong>アイコン：</strong>
   <%= @sch.icon_id %>
 </p>
 
 <p>
-  <strong>場所:</strong>
+  <strong>場所：</strong>
   <%= @sch.place %>
 </p>
 
 <p>
-  <strong>メモ:</strong>
+  <strong>メモ：</strong>
   <%= @sch.memo_sche %>
 </p>
 
 <p>
-<strong>アプリ内通知:</strong>
-<%= @sch.notification_sche %>
+<strong>アプリ内通知：</strong>
+<% if @sch.notification_sche == true %>
+  オン
+<% else %>
+  オフ
+<% end %>
+</p>
+
+<!--
+<p>
+  <strong>メール通知：</strong>
+  <% if @sch.mail_sche == true %>
+    オン
+  <% else %>
+    オフ
+  <% end %>
+</p>
+-->
+
+<p>
+<strong>通知時間：</strong>
+<% if @sch.notification_sche == true %>
+  <%= @sch.notification_time.strftime('20%y/%m/%d %H:%M') %>
+<% end %>
 </p>
 
 <p>
-  <strong>メール通知:</strong>
-  <%= @sch.mail_sche %>
+<strong>スヌーズ：</strong>
+<% if @sch.notification_sche == true %>
+  <% if @sch.snooze == true %>
+    オン
+  <% else %>
+    オフ
+  <% end %>
+<% end %>
 </p>
 
 <p>
-<strong>通知時間:</strong>
-<%= @sch.notification_time %>
+  <strong>リンク：</strong>
+  <%= link_to @sch.url_sche, @sch.url_sche %>
 </p>
 
-<p>
-<strong>スヌーズ:</strong>
-<%= @sch.snooze %>
-</p>
-
-<%= link_to '戻る', sches_path %> |
-<%= link_to '編集', edit_sch_path(@sch) %> 
+<%= link_to 'スケジュールへ', sches_path %> |
+<%= link_to '編集', edit_sch_path(@sch) %> |
+<%= link_to '通知画面へ', tuti_index_path %> 
 

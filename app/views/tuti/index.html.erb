@@ -2,9 +2,9 @@
 <div class="box14">
 <h2>発売日</h2></div>
 <% kensu = 0 %>
-<% @syoji_ts.each do |syoji_t| %>
-  <% if syoji_t.release.present? %>
-    <% if syoji_t.release >= Date.today and syoji_t.release <= Date.today + 5
+<% @syoji.each do |syoji| %>
+  <% if syoji.release.present? %>
+    <% if syoji.release >= Date.today and syoji.release <= Date.today + 5
        kensu += 1
     end %>
   <% end %>
@@ -24,20 +24,20 @@
   </thead>
 
   <tbody>
-    <% @syoji_ts.each do |syoji_t| %>
-      <% if syoji_t.notification_syo == true %>
-      <% if syoji_t.release.present? %>
-        <% if syoji_t.notification_time <= DateTime.now %>
-          <% if syoji_t.release < Date.today
+    <% @syoji.each do |syoji| %>
+      <% if syoji.notification_syo == true %>
+      <% if syoji.release.present? %>
+        <% if syoji.notification_time <= DateTime.now %>
+          <% if syoji.release < Date.today
                namecolor = "red"
              end %>
         <tr>
         <br>
-          <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji_t.release.strftime('20%y/%m/%d') %></p></div>
+          <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></p></div>
           <div class="box1"><p><%= syoji_t.title_syo %></p></div>
-          <div class="box1"><p><%= link_to '詳細', syoji_t %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji_t) %></div>
-          <div class="box1"><p><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <div class="box1"><p><%= link_to '詳細', syoji %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+          <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
@@ -50,8 +50,8 @@
 
 <div class="box14"><h2>スケジュール</h2></div>
 <% kensu = 0 %>
-<% @sche_ts.each do |sche_t| %>
-  <% if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5
+<% @sche.each do |sche| %>
+  <% if sche.schedule_at >= Date.today and sche.schedule_at <= Date.today + 5
   kensu += 1
    end %>
 <% end %>
@@ -69,23 +69,26 @@
   </thead>
 
   <tbody>
-    <% @sche_ts.each do |sche_t| %>
-      <% if sche_t.notification_sche == true %>
-        <% if sche_t.notification_time <= DateTime.now %>
-          <% if sche_t.schedule_at < Date.today
+    <% @sche.each do |sche| %>
+      <% if sche.notification_sche == true %>
+        <% if sche.notification_time <= DateTime.now and sche.schedule_at >= Date.today - 7 %>
+          <% if sche.schedule_at < Date.today
                namecolor = "red"
              end
           %>
         <tr>
         <br>
-        <div class="box1"><p style = "color : <%= namecolor %>"><%= sche_t.schedule_at.strftime('20%y/%m/%d %H:%M') %></p></div>
-        <div class="box1"><p><%= sche_t.name_sche %></div>
-        <div class="box1"><p><%= link_to '詳細', sche_t %></div>
-        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche_t) %></div>
-        <div class="box1"><p><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div class="box1"><p style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></p></div>
+        <div class="box1"><p><%= sche.name_sche %></div>
+        <div class="box1"><p><%= link_to '詳細', sche %></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) %></div>
+        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
     <% end %>
   </tbody>
 </table>
+
+<br>
+<%= link_to '前のページへ', :back %>
