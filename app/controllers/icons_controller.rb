@@ -27,11 +27,13 @@ class IconsController < ApplicationController
   def create
     @icon = Icon.new
     @icon.name_icon = params[:icon][:name_icon]
+
     if params[:icon][:image_icon].present?
       @icon.image_icon = params[:icon][:image_icon].original_filename
       @icon.image_type = params[:icon][:image_icon].content_type
       @icon.image_binary = params[:icon][:image_icon].read
     end
+
     if @icon.save
       redirect_to icons_path
     else
@@ -44,21 +46,25 @@ class IconsController < ApplicationController
   def update
     @icon = Icon.find(params[:id])
     @icon.name_icon = params[:icon][:name_icon]
+
     if params[:icon][:image_icon].present?
       @icon.image_icon = params[:icon][:image_icon].original_filename
       @icon.image_type = params[:icon][:image_icon].content_type
       @icon.image_binary = params[:icon][:image_icon].read
     end
+
     if @icon.save
       redirect_to icons_path
     else
       render :edit
     end
   end
+
 def show_image
   @icon = Icon.find(params[:id])
   send_data @icon.image_binary, :filename => @icon.image_icon, :type => @icon.image_type, :disposition => 'inline'
 end
+
   # DELETE /icons/1
   # DELETE /icons/1.json
   def destroy

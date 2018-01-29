@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h2>発売日</h2>
+<div class="box14">
+<h2>発売日</h2></div>
 <% kensu = 0 %>
 <% @syoji.each do |syoji| %>
   <% if syoji.release.present? %>
@@ -9,13 +9,16 @@
     end %>
   <% end %>
 <% end %>
-<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p>
+<br>
+<div class="box17">
+<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
     <tr>
-      <th>発売日</th>
-      <th>タイトル</th>
+    <br>
+    <div class="box22"><p>発売日</p></div>
+    <div class="box22"><p>タイトル</p></div>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,14 +30,14 @@
         <% if syoji.notification_time <= DateTime.now %>
           <% if syoji.release < Date.today
                namecolor = "red"
-             end
-          %>
+             end %>
         <tr>
-          <td style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></td>
-          <td><%= syoji.title_syo %></td>
-          <td><%= link_to '詳細', syoji %></td>
-          <td><%= link_to '編集', edit_syoji_path(syoji) %></td>
-          <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+          <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></p></div>
+          <div class="box1"><p><%= syoji.title_syo %></p></div>
+          <div class="box1"><p><%= link_to '詳細', syoji %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+          <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
@@ -45,20 +48,22 @@
 
 
 
-<h2>スケジュール</h2>
+<div class="box14"><h2>スケジュール</h2></div>
 <% kensu = 0 %>
 <% @sche.each do |sche| %>
   <% if sche.schedule_at >= Date.today and sche.schedule_at <= Date.today + 5
   kensu += 1
    end %>
 <% end %>
-<p><strong>５日以内に期限がくるものが <%= kensu %> 件あります</strong></p>
+<br>
+<div class="box17"><p><strong>５日以内に期限がくるものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
     <tr>
-      <th>日時</th>
-      <th>予定名</th>
+    <br>
+    <div class="box22"><p>日時</p></div>
+    <div class="box22"><p>予定名</p></div>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -72,18 +77,19 @@
              end
           %>
         <tr>
-          <td style = "color : <%= namecolor %>">
-          <% if sche.syujitsu == true %>
-            <%= sche.schedule_at.strftime('20%y/%m/%d') %>
-            終日
-          <% else %>
-            <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
-          <% end %></td>
-          <td><%= sche.name_sche %></td>
-          <td><%= link_to '詳細', sche %></td>
-          <td><%= link_to '編集', edit_sch_path(sche) %></td>
-          <td><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>  
+        <br>
+        <div class="box1"><p style = "color : <%= namecolor %>">
+        <% if sche.syujitsu == true %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d') %>
+          終日
+        <% else %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+        <% end %></p></div>
+        <div class="box1"><p><%= sche.name_sche %></div>
+        <div class="box1"><p><%= link_to '詳細', sche %></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) %></div>
+        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </tr>
         <% end %>
       <% end %>
     <% end %>

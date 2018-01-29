@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1>発売日通知</h1>
+<div class="box14"><h1>発売日通知</h1></div>
 
 <% kensu = 0 %>
 <% @syoji_ts.each do |syoji_t| %>
@@ -10,12 +15,12 @@
     end %>
   <% end %>
 <% end %>
-<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p>
+<p><div class="box2"><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></div></p>
 
 <table>
   <thead>
     <tr>
-      <th>発売日</th>
+      <div class="box14"><p>発売日</p></div>
       <th>タイトル</th>
       <th>アーティスト名</th>
       <th colspan="3"></th>
@@ -45,3 +50,4 @@
     <% end %>
   </tbody>
 </table>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
