@@ -70,6 +70,16 @@
 </p>
 
 <p>
+<strong>欲しい巻数：</strong>
+<% if @syoji.have == 2 or @syoji.have == 3 %>
+  <%= @syoji.volume %>
+  <% if @syoji.volume.present? %>
+    巻
+  <% end %>
+<% end %>
+</p>
+
+<p>
 <strong>発売日：</strong>
 <%= @syoji.release %>
 </p>

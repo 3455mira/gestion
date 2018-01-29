@@ -82,7 +82,7 @@
           <td><%= sche.name_sche %></td>
           <td><%= link_to '詳細', sche %></td>
           <td><%= link_to '編集', edit_sch_path(sche) %></td>
-          <td><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>  
         <% end %>
       <% end %>
