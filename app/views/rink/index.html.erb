@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>リンク一覧</h1>
+<h2>リンク一覧</h2>
 
+<h4>グッズ</h4>
 <table>
 <thead>
   <tr>
@@ -12,11 +13,33 @@
 </thead>
 
 <tbody>
-  <% @rinks.each do |rink| %>
-    <% if rink.url_syo.present? %>
+  <% @links1.each do |link| %>
+    <% if link.url_syo.present? %>
       <tr>
-        <td><%= rink.title_syo %></td>
-        <td><%= link_to rink.url_syo, rink.url_syo %></td>
+        <td><%= link.title_syo %></td>
+        <td><%= link_to link.url_syo, link.url_syo %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>
+</table>
+
+<h4>スケジュール</h4>
+<table>
+<thead>
+  <tr>
+    <th>関連タイトル</th>
+    <th>リンク先</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @links2.each do |link| %>
+    <% if link.url_sche.present? %>
+      <tr>
+        <td><%= sink.name_sche %></td>
+        <td><%= link_to link.url_sche, link.url_sche %></td>
       </tr>
     <% end %>
   <% end %>

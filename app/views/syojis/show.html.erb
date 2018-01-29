@@ -28,6 +28,11 @@
 </p>
 
 <p>
+  <strong>カテゴリー：</strong>
+  <%= @syoji.category.category %>
+</p>
+
+<p>
   <strong>ジャンルタイトル：</strong>
   <%= @syoji.title_j %>
 </p>
@@ -120,11 +125,6 @@
     オフ
   <% end %>
 <% end %>
-</p>
-
-<p>
-  <strong>カテゴリー：</strong>
-  <%= @syoji.category.category %>
 </p>
 
 <%= link_to '一覧へ', syojis_path %>|
