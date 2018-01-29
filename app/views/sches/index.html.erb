@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>スケジュール</h1>
+<div class="box14"><h1>スケジュール</h1></div>
 
 <% today = Date.today %>
 <% now = Date.current %>
 <table border="1">
   <caption><%= now.strftime('%Y年%m月') %></caption>
   <tr height="30px">
-    <th width="60px" style="background: red;"><spen style="color: white;">日</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">月</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">火</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">水</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">木</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">金</spen></th>
-    <th width="60px" style="background: blue;"><spen style="color: white;">土</spen></th>
+    <th width="60px" style="background: #ff9ba0;"><spen style="color: white;"> 日</spen></th>
+    <th width="60px" style="background: #a5d3fd"><spen style="color: white;">月</spen></th>
+    <th width="60px" style="background: #a5d3fd;"><spen style="color: white;">火</spen></th>
+    <th width="60px" style="background: #a5d3fd;"><spen style="color: white;">水</spen></th>
+    <th width="60px" style="background: #a5d3fd;"><spen style="color: white;">木</spen></th>
+    <th width="60px" style="background: #a5d3fd;"><spen style="color: white;">金</spen></th>
+    <th width="60px" style="background: #76aeee;"><spen style="color: white;">土</spen></th>
   </tr>
   <tr>
 <% month = now.strftime('%m') %>
@@ -21,7 +21,7 @@
 <% 1.upto(6).each do |i| %>
   <tr height="70px">
 <% (d..d.end_of_week(:sunday)).each do |c| %>
-  <td align="left" valign="top" style="background: <%= (c == today) ? "gray" : "white" %>;">
+  <td align="left" valign="top" style="background: <%= (c == today) ? "#ffd0d0;" : "white" %>;">
     <%= (c.strftime('%m') == month) ? c.strftime('%d') : " " %><br>
     <% @sches.each do |sche| %>
       <% if c.strftime('%y-%m-%d') == sche.schedule_at.strftime('%y-%m-%d') %>
@@ -38,11 +38,11 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "schedule_at", "日時" %></th>
-      <th>予定名</th>
-      <th><%= sortable "icon_id", "アイコン" %></th>
-      <th>場所</th>
-      <th>メモ</th>
+    <div class="box22"><p><%= sortable "schedule_at", "日時" %></p></div>
+    <div class="box22"> <p>予定名</p></div>
+    <div class="box22"><p><%= sortable "icon_id", "アイコン" %></p></div>
+    <div class="box22"><p>場所</p></div>
+    <div class="box22"><p>メモ</p></div>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -60,14 +60,15 @@
         end
        %>
       <tr>
-        <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
-        <td><%= sche.name_sche %></td>
-        <td><%= sche.icon_id %></td>
-        <td><%= sche.place %></td>
-        <td><%= sche.memo_sche %></td>
-        <td><%= link_to '詳細', sche %></td>
-        <td><%= link_to '編集', edit_sch_path(sche) %></td>
-        <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></td>
+      <br>
+      <div class="box1"><p style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></p></div>
+        <div class="box1"><p><%= sche.name_sche %></p></div>
+        <div class="box1"><p><%= sche.icon_id %></p></div>
+        <div class="box1"><p><%= sche.place %></p></div>
+        <div class="box1"><p><%= sche.memo_sche %></p></div>
+        <div class="box1"><p><%= link_to '詳細', sche %></p></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) %></p></div>
+        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></p></div>
       </tr>
     <% end %>
   </tbody>
@@ -75,4 +76,4 @@
 
 <br>
 
-<%= link_to '新規スケジュール', new_sch_path %>|
+<%= link_to '新規スケジュール', new_sch_path %>

@@ -27,17 +27,17 @@ class GenresController < ApplicationController
     @genre = Genre.new
     @genre.color_g = params[:genre][:color_g]
     @genre.image_g = params[:genre][:image_g]
-  if params[:genre][:image_g].present?
-    @genre.image_g = params[:genre][:image_g].original_filename
-    @genre.image_type = params[:genre][:image_g].content_type
-    @genre.image_binary = params[:genre][:image_g].read
-  end
+    if params[:genre][:image_g].present?
+      @genre.image_g = params[:genre][:image_g].original_filename
+      @genre.image_type = params[:genre][:image_g].content_type
+      @genre.image_binary = params[:genre][:image_g].read
+    end
 
-  if @genre.save
-    redirect_to genres_path
-  else
-    render :new
-  end
+    if @genre.save
+      redirect_to genres_path
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /genres/1
@@ -57,7 +57,7 @@ class GenresController < ApplicationController
     else
       render :edit
     end
-    end
+  end
 
   # DELETE /genres/1
   # DELETE /genres/1.json

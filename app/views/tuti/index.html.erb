@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h2>発売日</h2>
+<div class="box14">
+<h2>発売日</h2></div>
 <% kensu = 0 %>
 <% @syoji_ts.each do |syoji_t| %>
   <% if syoji_t.release.present? %>
@@ -9,13 +9,16 @@
     end %>
   <% end %>
 <% end %>
-<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p>
+<br>
+<div class="box17">
+<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
     <tr>
-      <th>発売日</th>
-      <th>タイトル</th>
+    <br>
+    <div class="box22"><p>発売日</p></div>
+    <div class="box22"><p>タイトル</p></div>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,14 +30,14 @@
         <% if syoji_t.notification_time <= DateTime.now %>
           <% if syoji_t.release < Date.today
                namecolor = "red"
-             end
-          %>
+             end %>
         <tr>
-          <td style = "color : <%= namecolor %>"><%= syoji_t.release.strftime('20%y/%m/%d') %></td>
-          <td><%= syoji_t.title_syo %></td>
-          <td><%= link_to '詳細', syoji_t %></td>
-          <td><%= link_to '編集', edit_syoji_path(syoji_t) %></td>
-          <td><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+          <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji_t.release.strftime('20%y/%m/%d') %></p></div>
+          <div class="box1"><p><%= syoji_t.title_syo %></p></div>
+          <div class="box1"><p><%= link_to '詳細', syoji_t %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji_t) %></div>
+          <div class="box1"><p><%= link_to '削除', syoji_t, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
@@ -45,20 +48,22 @@
 
 
 
-<h2>スケジュール</h2>
+<div class="box14"><h2>スケジュール</h2></div>
 <% kensu = 0 %>
 <% @sche_ts.each do |sche_t| %>
   <% if sche_t.schedule_at >= Date.today and sche_t.schedule_at <= Date.today + 5
   kensu += 1
    end %>
 <% end %>
-<p><strong>５日以内に期限がくるものが <%= kensu %> 件あります</strong></p>
+<br>
+<div class="box17"><p><strong>５日以内に期限がくるものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
     <tr>
-      <th>日時</th>
-      <th>予定名</th>
+    <br>
+    <div class="box22"><p>日時</p></div>
+    <div class="box22"><p>予定名</p></div>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -72,11 +77,12 @@
              end
           %>
         <tr>
-          <td style = "color : <%= namecolor %>"><%= sche_t.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
-          <td><%= sche_t.name_sche %></td>
-          <td><%= link_to '詳細', sche_t %></td>
-          <td><%= link_to '編集', edit_sch_path(sche_t) %></td>
-          <td><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <div class="box1"><p style = "color : <%= namecolor %>"><%= sche_t.schedule_at.strftime('20%y/%m/%d %H:%M') %></p></div>
+        <div class="box1"><p><%= sche_t.name_sche %></div>
+        <div class="box1"><p><%= link_to '詳細', sche_t %></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche_t) %></div>
+        <div class="box1"><p><%= link_to '削除', sche_t, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>

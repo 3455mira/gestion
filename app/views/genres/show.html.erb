@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Color g:</strong>
+  <strong>ジャンル名：</strong>
   <%= @genre.color_g %>
 </p>
 
+
 <p>
-  <strong>Image g:</strong>
+  <strong>カラー：</strong>
   <%= image_tag show_image_genre_path(@genre), :width => 50 %>
 </p>
 
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+<p>
+  <strong>所持品</strong>
+  <p>
+    <% @genre.syojis.each do |syoji| %>
+      <%= syoji.title_syo %><br>
+    <% end %>
+  <p>
+</p>
+
+
+<%= link_to '編集', edit_genre_path(@genre) %> |
+<%= link_to '戻る', genres_path %>
