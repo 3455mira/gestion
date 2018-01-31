@@ -10,7 +10,7 @@
   <% end %>
 <% end %>
 <br>
-<div class="box17">５日以内に発売するものが <%= kensu %> 件あります</div>
+<div class="box17"><p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
@@ -34,8 +34,8 @@
         <br>
           <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></p></div>
           <div class="box1"><p><%= syoji.title_syo %></p></div>
-          <div class="box1"><p><%= link_to '詳細', syoji %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
           <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
@@ -85,8 +85,8 @@
           <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
         <% end %></p></div>
         <div class="box1"><p><%= sche.name_sche %></div>
-        <div class="box1"><p><%= link_to '詳細', sche %></div>
-        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) %></div>
+        <div class="box1"><p><%= link_to '詳細', sche , target:"_self" %></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) , target:"_self" %></div>
         <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
@@ -96,4 +96,4 @@
 </table>
 
 <br>
-<%= link_to '前のページへ', :back %>
+<%= link_to '前のページへ', :back , target:"_self" %>

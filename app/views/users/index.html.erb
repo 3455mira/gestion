@@ -17,8 +17,8 @@
       <tr>
         <td><%= user.name_user %></td>
         <td><%= user.pass_user %></td>
-        <td><%= image_tag show_image_user_path(user),:width => 100 %></td>
-        <td><%= link_to '編集', edit_user_path(user) %></td>
+        <td><%= image_tag show_image_user_path(user),:width => 100 , target:"_self" %></td>
+        <td><%= link_to '編集', edit_user_path(user) , target:"_self" %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -29,4 +29,4 @@
 <br>
 
 
-<%= link_to '新規アカウント作成', new_user_path %>
+<%= link_to '新規アカウント作成', new_user_path , target:"_self" %>

@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<div class="box14"><h1>所持品</h1></div>
+<div class="box14"><h1>グッズ</h1></div>
+
+<p><%= link_to '新規追加', new_syoji_path , target:"_self" %> </p>
 
 <table>
   <thead>
@@ -23,8 +25,8 @@
           <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
         <% else %>
         <% end %></div>
-        <div class="box1"><p><%= link_to '詳細', syoji %></div>
-        <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+        <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
+        <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
         <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
       </tr>
     <% end %>
@@ -53,8 +55,8 @@
         <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
       <% else %>
       <% end %></div>
-          <div class="box1"><p><%= link_to '詳細', syoji %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
           <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
     </tr>
   <% end %>
@@ -87,8 +89,8 @@
       <div class="box1"><p><% if syoji.release.present? %>
             <%= syoji.release.strftime('20%y/%m/%d') %>
           <% end %></div>
-          <div class="box1"><p><%= link_to '詳細', syoji %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) %></div>
+          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
           <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
     </tr>
   <% end %>
@@ -97,4 +99,4 @@
 
 <br>
 
-<%= link_to '新規作成', new_syoji_path %> 
+<%= link_to '新規追加', new_syoji_path , target:"_self" %> 

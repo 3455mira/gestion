@@ -18,7 +18,7 @@
     <% if link.url_syo.present? %>
       <tr>
         <td><%= link.title_syo %></td>
-        <td><%= link_to link.url_syo, link.url_syo %></td>
+        <td><%= link_to link.url_syo, link.url_syo , target:"_blank" %></td>
       </tr>
     <% end %>
   <% end %>
@@ -43,7 +43,7 @@
     <% if link.url_sche.present? %>
       <tr>
         <td><%= sink.name_sche %></td>
-        <td><%= link_to link.url_sche, link.url_sche %></td>
+        <td><%= link_to link.url_sche, link.url_sche , target:"_blank"  %></td>
       </tr>
     <% end %>
   <% end %>

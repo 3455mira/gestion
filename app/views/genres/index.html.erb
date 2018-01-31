@@ -16,8 +16,8 @@
       <tr>
         <td><%= genre.color_g %></td>
         <td><%= image_tag show_image_genre_path(genre), :width => 50 %></td>
-        <td><%= link_to '詳細', genre %></td>
-        <td><%= link_to '編集', edit_genre_path(genre) %></td>
+        <td><%= link_to '詳細', genre , target:"_self" %></td>
+        <td><%= link_to '編集', edit_genre_path(genre) , target:"_self" %></td>
         <td><%= link_to '削除', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'ジャンルを追加', new_genre_path %>
+<%= link_to 'ジャンルを追加', new_genre_path , target:"_self" %>
