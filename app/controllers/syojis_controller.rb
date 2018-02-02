@@ -59,7 +59,7 @@ class SyojisController < ApplicationController
                                                 params[:syoji][:'notification_time(4i)'].to_i,
                                                 params[:syoji][:'notification_time(5i)'].to_i,
                                                 00)
-        @syoji.snooze            = params[:syoji][:snooze]
+        #@syoji.snooze            = params[:syoji][:snooze]
       end
     end
 
@@ -111,7 +111,7 @@ class SyojisController < ApplicationController
                                                 params[:syoji][:'notification_time(4i)'].to_i,
                                                 params[:syoji][:'notification_time(5i)'].to_i,
                                                 00)
-        @syoji.snooze            = params[:syoji][:snooze]
+        #@syoji.snooze            = params[:syoji][:snooze]
       end
     end
 

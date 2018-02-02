@@ -115,7 +115,7 @@
     <%= @syoji.notification_time.strftime('20%y/%m/%d %H:%M') %>
   <% end %>
 </p>
-
+<!--
 <p>
 <strong>スヌーズ：</strong>
 <% if @syoji.notification_syo == true %>
@@ -126,6 +126,7 @@
   <% end %>
 <% end %>
 </p>
+-->
 
 <%= link_to '一覧へ', syojis_path , target:"_self" %>|
 <%= link_to '編集', edit_syoji_path(@syoji) , target:"_self" %> |
