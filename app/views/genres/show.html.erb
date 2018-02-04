@@ -12,14 +12,12 @@
 </p>
 
 <p>
-  <strong>所持品</strong>
-  <p>
-    <% @genre.syojis.each do |syoji| %>
-      <%= syoji.title_syo %><br>
-    <% end %>
-  <p>
+  <strong>グッズ</strong><br>
+  <% @genre.syojis.each do |syoji| %>
+    ・<%= syoji.title_syo %><br>
+  <% end %>
 </p>
+<br>
 
-
-<%= link_to '編集', edit_genre_path(@genre) %> |
-<%= link_to '戻る', genres_path %>
+<%= link_to '一覧へ', genres_path , target:"_self" %>|
+<%= link_to '編集', edit_genre_path(@genre) , target:"_self" %> 

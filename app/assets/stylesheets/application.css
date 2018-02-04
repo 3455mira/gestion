@@ -31,7 +31,8 @@
 	height: element.naturalHeight;	/* ヘッダーの高さを指定する */
 	padding: 0px;		/* ヘッダーの余白を指定する(上下左右) */
 	background-color: #c4e2ff;	/* ヘッダーの背景色を指定する */
-	color: #151058;		/* フォントの色を指定する */
+    color: #151058;		/* フォントの色を指定する */
+    z-index: 1;
  }
 
 
@@ -254,6 +255,7 @@
 	display:inline-block;
     margin:1.5em 0;
     position: relative;
+    z-index: 0;
     padding: 0.2em 1.2em;
     border-top: solid 2px rgb(82, 138, 190);
     border-bottom: solid 2px rgb(82, 138, 190);

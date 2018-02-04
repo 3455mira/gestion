@@ -28,6 +28,11 @@
 </p>
 
 <p>
+  <strong>カテゴリー：</strong>
+  <%= @syoji.category.category %>
+</p>
+
+<p>
   <strong>ジャンルタイトル：</strong>
   <%= @syoji.title_j %>
 </p>
@@ -70,6 +75,16 @@
 </p>
 
 <p>
+<strong>欲しい巻数：</strong>
+<% if @syoji.have == 2 or @syoji.have == 3 %>
+  <%= @syoji.volume %>
+  <% if @syoji.volume.present? %>
+    巻
+  <% end %>
+<% end %>
+</p>
+
+<p>
 <strong>発売日：</strong>
 <%= @syoji.release %>
 </p>
@@ -100,7 +115,7 @@
     <%= @syoji.notification_time.strftime('20%y/%m/%d %H:%M') %>
   <% end %>
 </p>
-
+<!--
 <p>
 <strong>スヌーズ：</strong>
 <% if @syoji.notification_syo == true %>
@@ -111,12 +126,8 @@
   <% end %>
 <% end %>
 </p>
+-->
 
-<p>
-  <strong>カテゴリー：</strong>
-  <%= @syoji.category.category %>
-</p>
-
-<%= link_to '一覧へ', syojis_path %>|
-<%= link_to '編集', edit_syoji_path(@syoji) %> |
-<%= link_to '通知画面へ', tuti_index_path %> 
+<%= link_to '一覧へ', syojis_path , target:"_self" %>|
+<%= link_to '編集', edit_syoji_path(@syoji) , target:"_self" %> |
+<%= link_to '通知画面へ', tuti_index_path , target:"_self" %> 

@@ -2,6 +2,7 @@
 
 <div class="box14"><h1>リンク一覧</h1></div>
 
+<h4>グッズ</h4>
 <table>
 <thead>
   <tr>
@@ -12,11 +13,36 @@
 </thead>
 
 <tbody>
-  <% @rinks.each do |rink| %>
-    <% if rink.url_syo.present? %>
+  <% @links1.each do |link| %>
+    <% if link.url_syo.present? %>
       <tr>
-        <td><%= rink.title_syo %></td>
-        <td><%= link_to rink.url_syo, rink.url_syo %></td>
+        <td><%= link.title_syo %></td>
+        <td><%= link_to link.url_syo, link.url_syo , target:"_blank" %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+<h4>スケジュール</h4>
+<table>
+<thead>
+  <tr>
+  <br>
+  <div class="box22"><p>関連タイトル</p></div>
+  <div class="box22"><p>リンク先</p></p>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @links2.each do |link| %>
+    <% if link.url_sche.present? %>
+      <tr>
+        <td><%= sink.name_sche %></td>
+        <td><%= link_to link.url_sche, link.url_sche , target:"_blank"  %></td>
       </tr>
     <% end %>
   <% end %>

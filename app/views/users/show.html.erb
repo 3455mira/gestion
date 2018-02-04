@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>メールアドレス:</strong>
+  <strong>アカウント名:</strong>
   <%= @user.mail_user %>
 </p>
 
@@ -20,5 +20,5 @@
   <%= @user.icon_user %>
 </p>
 
-<%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to '戻る', users_path %>
+<%= link_to '編集', edit_user_path(@user) , target:"_self" %> |
+<%= link_to '戻る', users_path , target:"_self" %>

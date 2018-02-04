@@ -69,13 +69,14 @@
           終日
         <% else %>
           <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
-        <% end %></p></td>
-        <td><%= sche.name_sche %></td>
-        <td><%= image_tag sche.icon.image_icon ,:height =>45 %></td>
-        <td><%= sche.place %></p></td>
-        <td><%= link_to '詳細', sche %></p></td>
-        <td><%= link_to '編集', edit_sch_path(sche) %></td>
-        <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></p></td>
+        <% end %></p></div>
+        <div class="box1"><p><%= sche.name_sche %></p></div>
+        <div class="box1"> <p><%= image_tag sche.icon.image_icon ,:height =>45 %></p></div>
+        <div class="box1"><p><%= sche.place %></p></div>
+        <div class="box1"><p><%= link_to '詳細', sche , target:"_self" %></p></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) , target:"_self" %></p></div>
+        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></p></div>
+        <td style = "color : <%= namecolor %>">
       </tr>
       <% end %>
       <% end %>
@@ -85,4 +86,4 @@
 </table>
 <br>
 
-<%= link_to 'スケジュールの追加', new_sch_path %>
+<%= link_to 'スケジュールの追加', new_sch_path , target:"_self" %>

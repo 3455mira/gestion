@@ -55,7 +55,7 @@ class SchesController < ApplicationController
                                             params[:sche][:'notification_time(4i)'].to_i,
                                             params[:sche][:'notification_time(5i)'].to_i,
                                             00)
-      @sch.snooze            = params[:sche][:snooze]
+      #@sch.snooze            = params[:sche][:snooze]
     end
 
     @sch.url_sche         = params[:sche][:url_sche]
@@ -104,7 +104,7 @@ class SchesController < ApplicationController
                                             params[:sche][:'notification_time(4i)'].to_i,
                                             params[:sche][:'notification_time(5i)'].to_i,
                                             00)
-      @sch.snooze            = params[:sche][:snooze]
+      #@sch.snooze            = params[:sche][:snooze]
     end
     
     @sch.url_sche         = params[:sche][:url_sche]

@@ -17,13 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :求巻数 %>
-    <%= number_field(:syoji, :volume, in: 1.0..200, step: 1) %>
+    <%= form.label :アーティスト名 %>
+    <%= form.text_field :artist, id: :syoji_artist %>
   </div>
 
   <div class="field">
-    <%= form.label :アーティスト名 %>
-    <%= form.text_field :artist, id: :syoji_artist %>
+    <%= form.label :カテゴリー %>
+    <%= form.select :category_id, Category.all.map { |c|[c.category, c.id] } %>
   </div>
 
   <div class="field">
@@ -77,6 +77,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :求巻数 %>
+    <%= number_field(:syoji, :volume, in: 1.0..200, step: 1) %>
+  </div>
+
+  <div class="field">
     <%= form.label :発売日 %>
     <%= form.date_select :release, id: :syoji_release %>
   </div>
@@ -86,27 +91,24 @@
     <%= form.check_box :notification_syo, id: :syoji_notification_syo %>
   </div>
 
-  <!--
+<!--
   <div class="field">
     <%= form.label :メール通知 %>
     <%= form.check_box :mail_syo, id: :syoji_mail_syo %>
   </div>
-  -->
+-->
 
   <div class="field">
     <%= form.label :通知時間（通知がオフ時不要） %>
     <%= form.datetime_select :notification_time, id: :syoji_notification_time %>
   </div>
 
+<!--
   <div class="field">
   <%= form.label :スヌーズ（通知がオフ時不要） %>
   <%= form.check_box :snooze, id: :syoji_snooze %>
 　</div>
-
-  <div class="field">
-    <%= form.label :カテゴリー %>
-    <%= form.select :category_id, Category.all.map { |c|[c.category, c.id] } %>
-  </div>
+-->
 
   <div class="actions">
     <%= form.submit %>

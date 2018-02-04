@@ -57,6 +57,7 @@
 <% end %>
 </p>
 
+<!--
 <p>
 <strong>スヌーズ：</strong>
 <% if @sch.notification_sche == true %>
@@ -67,13 +68,14 @@
   <% end %>
 <% end %>
 </p>
+-->
 
 <p>
   <strong>リンク：</strong>
   <%= link_to @sch.url_sche, @sch.url_sche %>
 </p>
 
-<%= link_to 'スケジュールへ', sches_path %> |
-<%= link_to '編集', edit_sch_path(@sch) %> |
-<%= link_to '通知画面へ', tuti_index_path %> 
+<%= link_to 'スケジュールへ', sches_path , target:"_self" %> |
+<%= link_to '編集', edit_sch_path(@sch) , target:"_self" %> |
+<%= link_to '通知画面へ', tuti_index_path , target:"_self" %> 
 

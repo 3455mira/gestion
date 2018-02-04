@@ -10,8 +10,7 @@
   <% end %>
 <% end %>
 <br>
-<div class="box17">
-<p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p></div>
+<div class="box17"><p><strong>５日以内に発売するものが <%= kensu %> 件あります</strong></p></div>
 
 <table>
   <thead>
@@ -32,11 +31,11 @@
              end %>
         <tr>
         <br>
-          <td style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></td>
-          <td><%= syoji_t.title_syo %></td>
-          <td><%= link_to '詳細', syoji %>
-          <td><%= link_to '編集', edit_syoji_path(syoji) %>
-          <td><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="box1"><p style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></p></div>
+          <div class="box1"><p><%= syoji.title_syo %></p></div>
+          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
+          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
+          <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
@@ -76,11 +75,17 @@
           %>
         <tr>
         <br>
-        <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
-        <td><%= sche.name_sche %>
-        <td><%= link_to '詳細', sche %>
-        <td><%= link_to '編集', edit_sch_path(sche) %>
-        <td><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="box1"><p style = "color : <%= namecolor %>">
+        <% if sche.syujitsu == true %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d') %>
+          終日
+        <% else %>
+          <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
+        <% end %></p></div>
+        <div class="box1"><p><%= sche.name_sche %></div>
+        <div class="box1"><p><%= link_to '詳細', sche , target:"_self" %></div>
+        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) , target:"_self" %></div>
+        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </tr>
         <% end %>
       <% end %>
@@ -89,4 +94,4 @@
 </table>
 
 <br>
-<%= link_to '前のページへ', :back %>
+<%= link_to '前のページへ', :back , target:"_self" %>
