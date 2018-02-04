@@ -36,11 +36,6 @@
 </div>
 
   <div class="field">
-    <%= form.label :アイコン %>
-    <%= form.select :icon_id, Icon.all.map { |i|[i.name_icon, i.id] } %>
-  </div>
-
-  <div class="field">
     <%= form.label :場所 %>
     <%= form.text_field :place %>
   </div>
