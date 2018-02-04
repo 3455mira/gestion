@@ -39,9 +39,18 @@
 <table>
   <thead>
     <tr>
-    <table>
-     <tbody>
-     <% @sches.each do |sche| %>
+      <div class="box22"><th><%= sortable "schedule_at", "日時" %></th></div>
+      <div class="box22"><th>予定名</th></div>
+      <div class="box22"><th><%= sortable "icon_id", "アイコン" %></th></div>
+      <div class="box22"><th>場所</th></div>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sches.each do |sche| %>
       <% if sche.schedule_at < Date.today
            namecolor = "red"
         else
@@ -54,35 +63,23 @@
        %>
       <% if sche.schedule_at >= Date.today - 7 and sche.schedule_at <= Date.today + 7 %> 
       <tr>
-      <div class="box22"><th><%= sortable "schedule_at", "日時" %></th></div>
-      <div class="box22"><th>予定名</th></div>
-      <div class="box22"><th><%= sortable "icon_id", "アイコン" %></th></div>
-      <div class="box22"><th>場所</th></div>
-      <th></th>
-      <th></th>
-      <th></th>
-      </tr>
-      <tr>
         <td><p style = "color : <%= namecolor %>">
         <% if sche.syujitsu == true %>
           <%= sche.schedule_at.strftime('20%y/%m/%d') %>
           終日
         <% else %>
           <%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %>
-        <% end %></p></div>
-        <div class="box1"><p><%= sche.name_sche %></p></div>
-        <div class="box1"> <p><%= image_tag sche.icon.image_icon ,:height =>45 %></p></div>
-        <div class="box1"><p><%= sche.place %></p></div>
-        <div class="box1"><p><%= link_to '詳細', sche , target:"_self" %></p></div>
-        <div class="box1"><p><%= link_to '編集', edit_sch_path(sche) , target:"_self" %></p></div>
-        <div class="box1"><p><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></p></div>
-        <td style = "color : <%= namecolor %>">
+        <% end %></p></td>
+        <td><%= sche.name_sche %></td>
+        <td><%= image_tag sche.icon.image_icon ,:height =>35 %></td>
+        <td><%= sche.place %></td>
+        <td><%= link_to '詳細', sche ,target:"_self" %></td>
+        <td><%= link_to '編集', edit_sch_path(sche), target:"_self" %></td>
+        <td><%= link_to '削除', sche, method: :delete, data: { confirm: '削除しますか？' } %></td>
       </tr>
       <% end %>
-      <% end %>
-    </tbody>
-    </table>
-    </thead>
+    <% end %>
+  </tbody>
 </table>
 <br>
 

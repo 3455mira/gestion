@@ -23,17 +23,10 @@
       <td><% if syoji.image_syo.present? %>
           <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
         <% else %>
-<<<<<<< HEAD
         <% end %>
-        <td><%= link_to '詳細', syoji %>
-        <td><%= link_to '編集', edit_syoji_path(syoji) %>
+        <td><%= link_to '詳細', syoji, target:"_self" %>
+        <td><%= link_to '編集', edit_syoji_path(syoji), target:"_self" %>
         <td><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %>
-=======
-        <% end %></div>
-        <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
-        <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
-        <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
->>>>>>> dc22cad67f25e981fd05a8de9fff558f2e004f81
       </tr>
     <% end %>
   </tbody>
@@ -59,17 +52,10 @@
     <td><% if syoji.image_syo.present? %>
         <%= image_tag show_image_syoji_path(syoji), :height =>60 %>
       <% else %>
-<<<<<<< HEAD
       <% end %>
-          <td><%= link_to '詳細', syoji %>
-          <td><%= link_to '編集', edit_syoji_path(syoji) %>
+          <td><%= link_to '詳細', syoji, target:"_self" %>
+          <td><%= link_to '編集', edit_syoji_path(syoji), target:"_self" %>
           <td><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %>
-=======
-      <% end %></div>
-          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
-          <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
->>>>>>> dc22cad67f25e981fd05a8de9fff558f2e004f81
     </tr>
   <% end %>
 </tbody>
@@ -99,17 +85,10 @@
       <% end %>
      <td><% if syoji.release.present? %>
             <%= syoji.release.strftime('20%y/%m/%d') %>
-<<<<<<< HEAD
      <% end %>
-          <td><%= link_to '詳細', syoji %>
-          <td><%= link_to '編集', edit_syoji_path(syoji) %>
+          <td><%= link_to '詳細', syoji, target:"_self" %>
+          <td><%= link_to '編集', edit_syoji_path(syoji), target:"_self" %>
           <td><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %>
-=======
-          <% end %></div>
-          <div class="box1"><p><%= link_to '詳細', syoji , target:"_self" %></div>
-          <div class="box1"><p><%= link_to '編集', edit_syoji_path(syoji) , target:"_self" %></div>
-          <div class="box1"><p><%= link_to '削除', syoji, method: :delete, data: { confirm: '削除しますか？' } %></div>
->>>>>>> dc22cad67f25e981fd05a8de9fff558f2e004f81
     </tr>
   <% end %>
 </tbody>
