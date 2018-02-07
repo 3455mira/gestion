@@ -6,16 +6,6 @@
 </p>
 
 <p>
-<% if @syoji.have != 1 %>
-<strong>巻数：</strong>
-  <%= @syoji.volume %>
-  <% if @syoji.volume.present? %>
-     巻
-  <% end %>
-<% end %>
-</p>
-
-<p>
   <strong>アーティスト名：</strong>
   <%= @syoji.artist %>
 </p>
@@ -75,15 +65,16 @@
 </p>
 
 <p>
+<% if @syoji.have != 1 %>
 <strong>欲しい巻数：</strong>
-<% if @syoji.have == 2 or @syoji.have == 3 %>
   <%= @syoji.volume %>
   <% if @syoji.volume.present? %>
-    巻
+     巻
   <% end %>
 <% end %>
 </p>
 
+<% if @syoji.have == 3 %>
 <p>
 <strong>発売日：</strong>
 <%= @syoji.release %>
@@ -127,6 +118,7 @@
 <% end %>
 </p>
 -->
+<% end %>
 
 <%= link_to '一覧へ', syojis_path , target:"_self" %>|
 <%= link_to '編集', edit_syoji_path(@syoji) , target:"_self" %> |

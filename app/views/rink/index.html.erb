@@ -40,7 +40,7 @@
   <% @links2.each do |link| %>
     <% if link.url_sche.present? %>
       <tr>
-        <td><%= sink.name_sche %></td>
+        <td><%= link.name_sche %></td>
         <td><%= link_to link.url_sche, link.url_sche , target:"_blank"  %></td>
       </tr>
     <% end %>
