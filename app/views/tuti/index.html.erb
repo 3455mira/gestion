@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="box14">
-<h2>発売日</h2></div>
+<div class="box14"><h2>発売日</h2></div>
 <% kensu = 0 %>
 <% @syoji.each do |syoji| %>
   <% if syoji.release.present? %>
@@ -15,7 +14,6 @@
 <table>
   <thead>
     <tr>
-    <br>
     <div class="box22"><th>発売日</th></div>
     <div class="box22"><th>タイトル</th></div>
     <th></th> 
@@ -33,7 +31,6 @@
                namecolor = "red"
              end %>
         <tr>
-        <br>
           <td style = "color : <%= namecolor %>"><%= syoji.release.strftime('20%y/%m/%d') %></td>
           <td><%= syoji.title_syo %></td>
           <td><%= link_to '詳細', syoji, target:"_self" %>
@@ -62,7 +59,6 @@
 <table>
   <thead>
     <tr>
-    <br>
     <div class="box22"><th>日時</th></div>
     <div class="box22"><th>予定名</th></div>
     <th></th> 
@@ -80,7 +76,6 @@
              end
           %>
         <tr>
-        <br>
         <td style = "color : <%= namecolor %>"><%= sche.schedule_at.strftime('20%y/%m/%d %H:%M') %></td>
         <td><%= sche.name_sche %>
         <td><%= link_to '詳細', sche, target:"_self" %>
